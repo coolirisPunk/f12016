@@ -1,0 +1,12 @@
+*.pyc
+*.pyo
+.DS_Store
+media
+/static/
+secrets.json
+manage.py
+premio/migrations/*
+store/migrations/*
+authentication/migrations/*
+socialhub/migrations/*
+beyond_track/migrations/*

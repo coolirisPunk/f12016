@@ -1,0 +1,11 @@
+Django==1.9.7
+django-admin-sortable==2.0.10
+django-allauth==0.24.1
+django-nested-admin==2.2.2
+django-nested-inline==0.3.5
+django-rest-auth==0.6.0
+djangorestframework==3.3.2
+drf-nested-routers==0.11.1
+
+
+

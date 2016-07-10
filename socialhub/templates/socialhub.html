@@ -1,0 +1,210 @@
+{% load staticfiles %}
+{% load thumbnail %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>SocialHub</title>
+   <link href="{% static 'socialhub/css/reset.css' %}" rel="stylesheet"/>
+   <link href="{% static 'socialhub/js/bootstrap-3.3.5/css/bootstrap.min.css' %}" rel="stylesheet">
+   <link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+</head>
+<style>
+   body{
+      background-color: #FFFFFF;
+      font-family: 'Oswald', sans-serif;
+      width: 100%!important;
+      overflow-x:hidden;
+   }
+   .post{
+       padding: 30px 0;
+       border-bottom: 3px solid #e1e3e3;
+
+   }
+.posts > div .post + .post{
+margin-top: 20px;
+}
+   .date{
+      background-color: rgb(250,0,15);
+      text-align: center;
+      color:#FFFFFF;
+      padding: 5px 30px;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      font-weight: 400;
+   }
+
+   .message{
+      color:#000000;
+      font-weight: 300;
+      text-align: left;
+      margin-top: 10px;
+   }
+   .user{
+      font-weight: 300;
+      text-align: left;
+       padding-bottom: 10px;
+
+   }
+   .image{
+      text-align: center;
+       float: left;
+   }
+   .image img{
+      max-width: 100%;
+   }
+   .post-user-name{
+      padding-left: 0;
+      color:#A5A5A5;
+   }
+   .user-name{
+      font-size: 16px;
+   }
+   .via{
+       color:black
+   }
+   .via-twitter{
+   }
+   .user-screen{
+      font-weight: 300;
+      font-size: 16px;
+   }
+.impar .date{
+    background-color: #FFDB7B;
+    color:#000000;
+}
+.par .date{
+    background-color: #F9F5B7;
+    color:#000000;
+}
+.user-name{
+  color:#000000;
+}
+.via-twitter{
+
+}
+.message,.user-screen{
+  color:#A5A5A5;
+}
+    .canvasloader-container{
+        text-align: center;
+    }
+
+</style>
+<body class="container">
+   <div class="row posts">
+      <div class="col-xs-12">
+      {% for post in posts %}
+         <div class="post row {% cycle 'impar' 'par' %} {{ post.type }} {% if post.type == "facebook" %}post-{{post.id}}{% endif %}">
+            {% if post.type == "facebook" %}
+                <div id="canvasloader-container-{{post.id}}" class="canvasloader-container"></div>
+               <div class="image">
+               </div>
+                <div class="message col-xs-12">{{post.message}}</div>
+            {% elif post.type == 'tweet' %}
+               <div class="user col-xs-12">
+                  <div class="row">
+                     <div class="col-xs-2 profile_image text-center">
+                        <img src="{{post.user.profile_image}}">
+                     </div>
+                     <div class="col-xs-10 post-user-name">
+                        <span class="user-name">{{post.user.name}}</span><br>
+                        <span class="via">via <span class="via-twitter">Twitter</span></span>
+                     </div>
+                  </div>
+               </div>
+               {% if post.image %}
+                   <div class="image">
+                        <img src="{{post.image}}" class="img-responsive">
+                   </div>
+               {% endif%}
+               <div class="message col-xs-12">{{post.text}} </div>
+               <div class="user-screen col-xs-12">{{post.user.screen_name}} </div>
+            {% else %}
+                {% if post.media_type == 'image' %}
+                    <div class="image">
+                        <img src="{{post.image}}" class="img-responsive">
+                    </div>
+                {% else %}
+                    <div class="video">
+                        <video src="{{post.media_url}}" controls class="img-responsive"></video>
+                    </div>
+                {% endif %}
+               <div class="message col-xs-12">{{post.text}} </div>
+               <div class="hidden user-screen col-xs-12">{{post.user}} </div>
+            {% endif %}
+             <div class="share " style="display:none;">
+                  <div class="share-options" style="display:none;">
+                    <div class="tooltipster-content">
+                      <ul class="share-options-menu-list">
+                          <li>
+                              <a class="post-share-tw-a" href="https://twitter.com/intent/tweet?url={{post.link_encoded}}&amp;text={{post.text_encoded}}" onclick="ga('send', 'event', 'Share Twitter', 'Click','{{post.link}}'); return !window.open(this.href, 'Twitter', 'width=665,height=300')" target="_blank">
+                                  <span class="icon-twitter icon"></span>
+                                  <span class="network-name">TWITTER</span>
+                              </a>
+                          </li>
+                          <li>
+                              <a data-text-encoded="{{post.text_encoded}}" class="post-share-fb-a" href="http://www.facebook.com/sharer.php?u={{post.link_encoded}}&amp;t={{post.text_encoded}}" onclick=" ga('send', 'event', 'Share Facebook', 'Click', '{{post.link}}');  return !window.open(this.href, 'Facebook', 'width=665,height=300')" target="_blank">
+                                  <span class="icon-facebook icon"></span>
+                                  <span class="network-name">FACEBOOK</span>
+                              </a>
+                          </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <span class="icon-share action-share"> <span>COMPARTIR</span></span>
+                </div>
+         </div>
+      {% endfor %}
+      </div>
+   </div>
+   <div class="csrf_token hidden">
+       {% csrf_token %}
+   </div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write("<script src='{% static 'socialhub/js/jquery-1.11.2.min.js'%} '>\x3C/script>")</script>
+<script src="{% static 'socialhub/js/bootstrap-3.3.5/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'socialhub/js/heartcode-canvasloader-min.js' %}"></script>
+<script>
+var csrftoken=$(".csrf_token").find('input[name="csrfmiddlewaretoken"]').val();
+function loadcanvas(post){
+    var cl = new CanvasLoader('canvasloader-container-'+post);
+    cl.setColor('#000000');
+    cl.show();
+}
+function getpost(post_id){
+    var data= {csrfmiddlewaretoken: csrftoken,post_id:post_id};
+    $.ajax("{% url 'get-picture-facebook' %}",{
+      data:data,
+      type:'post',
+      cache:false,
+      dataType:'json',
+      timeout:20000,
+      success: function(json){
+          if(json != "fail"){
+              $('#canvasloader-container-'+json["id"]).hide();
+              $('.post-'+post_id+" .image").html('<img src="'+ json["picture"] +'" alt="" class="img-responsive second-img-fb" />').fadeIn(1500);
+              var text_encoded = $('.post-'+post_id+" .post-share-fb-a").attr("data-text-encoded");
+              $('.post-'+post_id+" .post-share-fb-a").attr("href", "http://www.facebook.com/sharer.php?u="+json["link"]+"&t="+text_encoded);
+              $('.post-'+post_id+" .post-share-tw-a").attr("href", "https://twitter.com/intent/tweet?u="+json["link"]+"&text="+text_encoded);
+          }
+        },
+        error:function(jqXHR,textStatus,errorThrown){
+            console.log(jqXHR+textStatus+errorThrown)
+        }
+    });
+}
+{% for post in posts %}
+  {% if post.type == "facebook" %}
+      loadcanvas('{{post.id}}');
+      getpost('{{post.id}}');
+  {% endif %}
+{% endfor %}
+$(document).ready( function() {
+  $(".action-share").click(function(){
+      $(this).parent().find(".share-options").slideToggle();
+  });
+});
+</script>
+</body>
+</html>
