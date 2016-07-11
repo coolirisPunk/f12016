@@ -10,3 +10,10 @@ store/migrations/*
 authentication/migrations/*
 socialhub/migrations/*
 beyond_track/migrations/*
+.gitignore
+.idea/f12016.iml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+
