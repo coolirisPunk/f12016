@@ -63,7 +63,8 @@ INSTALLED_APPS = [
     'premio',
     'socialhub',
     'store',
-    'beyond_track'
+    'beyond_track',
+    'rest_framework_tracking'
 
 ]
 
@@ -178,7 +179,6 @@ MEDIA_URL = '/media/'
 #print(os.path.abspath(os.path.dirname(__name__)))
 
 SITE_ID = 1
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

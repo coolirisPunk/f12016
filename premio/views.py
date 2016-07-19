@@ -6,13 +6,14 @@ from .models import *
 from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
 from rest_framework import viewsets, mixins
 from common.mixins import CustomFieldsMixin, ActiveDesactiveMixin
-from request_log.mixins import LoggingMixin
+#from request_log.mixins import LoggingMixin
 from rest_framework import viewsets, mixins
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
 from rest_framework.views import APIView
 from django.shortcuts import get_list_or_404, get_object_or_404
 from django.conf import settings
 from operator import itemgetter
+from rest_framework_tracking.mixins import LoggingMixin
 
 
 def get_domain():
@@ -62,9 +63,20 @@ class NewList(ListAPIView):
         if self.request.method == "GET":
             if 'pk_category' in self.kwargs:
                 return New.objects.filter(category_new=self.kwargs['pk_category']).order_by('date')
-            else:
-                return []
+
         return []
+
+
+class LastNewsList(LoggingMixin, CustomFieldsMixin, ActiveDesactiveMixin, ListAPIView):
+    serializer_class = NewListSerializer
+    permission_classes = [IsAuthenticated, DjangoModelPermissions]
+    model = New
+    queryset = New.objects.all()
+
+    def get_queryset(self):
+
+
+        return New.objects.all().order_by('date')[:self.kwargs['last_news']]
 
 
 class NewItemView(APIView):
@@ -101,8 +113,7 @@ class RelatedNewList(ListAPIView):
                     return []
                 else:
                     return New.objects.filter(category_new=self.kwargs['pk_category']).exclude(pk=self.kwargs['pk_new']).order_by('date')[:3]
-            else:
-                return []
+
         return []
 
 
