@@ -11,7 +11,7 @@
 </head>
 <style>
    body{
-      background-color: #FFFFFF;
+      background-image: url("{% static 'socialhub/image/white_texture.jpg' %}");
       font-family: 'Oswald', sans-serif;
       width: 100%!important;
       overflow-x:hidden;
@@ -20,6 +20,10 @@
        padding: 30px 0;
        border-bottom: 3px solid #e1e3e3;
 
+   }
+   .posts{
+    padding-right: 10px;
+    padding-left: 10px;    
    }
 .posts > div .post + .post{
 margin-top: 20px;
@@ -35,7 +39,7 @@ margin-top: 20px;
    }
 
    .message{
-      color:#000000;
+      color:#656565;
       font-weight: 300;
       text-align: left;
       margin-top: 10px;
@@ -92,7 +96,7 @@ margin-top: 20px;
 
 </style>
 <body class="container">
-   <div class="row posts">
+   <div class="posts">
       <div class="col-xs-12">
       {% for post in posts %}
          <div class="post row {% cycle 'impar' 'par' %} {{ post.type }} {% if post.type == "facebook" %}post-{{post.id}}{% endif %}">
