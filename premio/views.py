@@ -140,7 +140,7 @@ class PremioViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewS
         return Response({"count": len(serializer.data),
                      "next": None,
                      "previous": None,
-                     "results": [serializer.data]
+                     "results": serializer.data
                      })
 
 
