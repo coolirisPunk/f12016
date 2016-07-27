@@ -6,14 +6,14 @@ from .models import *
 from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
 from rest_framework import viewsets, mixins
 from common.mixins import CustomFieldsMixin, ActiveDesactiveMixin
-#from request_log.mixins import LoggingMixin
+from request_log.mixins import LoggingMixin
 from rest_framework import viewsets, mixins
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
 from rest_framework.views import APIView
 from django.shortcuts import get_list_or_404, get_object_or_404
 from django.conf import settings
 from operator import itemgetter
-from rest_framework_tracking.mixins import LoggingMixin
+#from rest_framework_tracking.mixins import LoggingMixin
 from django.contrib.sites.models import Site
 
 
