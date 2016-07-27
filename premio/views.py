@@ -14,11 +14,13 @@ from django.shortcuts import get_list_or_404, get_object_or_404
 from django.conf import settings
 from operator import itemgetter
 from rest_framework_tracking.mixins import LoggingMixin
+from django.contrib.sites.models import Site
 
 
 def get_domain():
     return "http://104.236.3.158"
 
+damain_url = Site.objects.get_current().domain
 
 class EventDayViewSet(LoggingMixin, CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewSet):
     """
@@ -132,7 +134,6 @@ class PremioViewSet(viewsets.ModelViewSet):
         return instance
 
     def list(self, request, client_pk=None):
-        print "list"
         queryset = Race.objects.all().order_by('name')
         serializer = PremioListSerializer(queryset, many=True)
         return Response(serializer.data)
@@ -141,7 +142,7 @@ class PremioViewSet(viewsets.ModelViewSet):
     def retrieve(self, request, pk=None):
         queryset = Race.objects.filter(pk=pk)
         r = get_object_or_404(queryset, pk=pk)
-        race = {"id": r.pk,"name": r.name,"flag": get_domain() + settings.MEDIA_URL + str(r.flag)}
+        race = {"id": r.pk,"name": r.name,"flag": damain_url + settings.MEDIA_URL + str(r.flag)}
         phase_set = Phase.objects.filter(race=r).order_by("name")
         phases = []
         for i, phase in enumerate(phase_set):
@@ -150,7 +151,7 @@ class PremioViewSet(viewsets.ModelViewSet):
             positions = Position.objects.filter(phase=phase).order_by("number")
             positions_set = []
             for p in positions:
-                position = {"id":p.pk, "number":p.number, "time":p.time, "gap": p.gap, "laps": p.laps, "q1":p.q1, "q2":p.q2, "q3":p.q3, "points": p.points, "driver": p.driver.short_name, "team":get_domain() + settings.MEDIA_URL + str(
+                position = {"id":p.pk, "number":p.number, "time":p.time, "gap": p.gap, "laps": p.laps, "q1":p.q1, "q2":p.q2, "q3":p.q3, "points": p.points, "driver": p.driver.short_name, "team":damain_url + settings.MEDIA_URL + str(
                     p.driver.team.picture)}
                 positions_set.append(position)
             phases[i]["position_set"] = positions_set
@@ -184,7 +185,7 @@ class RankingGeneralViewSet(APIView):
                 positions = Position.objects.filter(phase=phase_r)
                 if i == 0 or len(results) == 0:
                     for p in positions:
-                        p_aux = {"id": p.driver.pk,"driver":p.driver.short_name,"team":p.driver.team.name,"picture_team":get_domain() + settings.MEDIA_URL + str(p.driver.team.picture),"points":int(p.points)}
+                        p_aux = {"id": p.driver.pk,"driver":p.driver.short_name,"team":p.driver.team.name,"picture_team":damain_url + settings.MEDIA_URL + str(p.driver.team.picture),"points":int(p.points)}
                         results.append(p_aux)
                 else:
                     for p in positions:
@@ -193,7 +194,7 @@ class RankingGeneralViewSet(APIView):
                             results[index]["points"] = results[index]["points"] + int(p.points)
                         else:
                             p_aux = {"id": p.driver.pk, "driver": p.driver.short_name, "team": p.driver.team.name,
-                                            "picture_team": get_domain() + settings.MEDIA_URL + str(p.driver.team.picture),
+                                            "picture_team": damain_url + settings.MEDIA_URL + str(p.driver.team.picture),
                                             "points": int(p.points)}
                             results.append(p_aux)
         return Response(sorted(results, key=itemgetter('points'),reverse=True))
@@ -226,7 +227,7 @@ class PilotoViewSet(viewsets.ModelViewSet):
         d_photos = d.photodriver_set.all()
         photos = []
         for p in d_photos:
-            photos.append({"id":p.pk,"name":p.name,"picture":get_domain() + settings.MEDIA_URL + str(p.picture)})
+            photos.append({"id":p.pk,"name":p.name,"picture":damain_url + settings.MEDIA_URL + str(p.picture)})
         driver = {"id": d.pk, "name": d.name, "number":d.number,"nationality":d.nationality, "birthday":d.birthday,
                   "place_of_birth":d.place_of_birth,"championships":d.championships,"photos": photos}
 

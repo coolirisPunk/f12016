@@ -3,8 +3,16 @@ from rest_framework import status
 from .models import *
 from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
 from common.serializers import DynamicFieldsModelSerializer
+from rest_framework import serializers
+from django.conf import settings
+from django.contrib.sites.models import Site
 
 
+def get_domain():
+    return "http://104.236.3.158"
+
+damain_url = Site.objects.get_current().domain
+ 
 class EventSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Event
@@ -56,11 +64,16 @@ class NewItemSerializer(DynamicFieldsModelSerializer):
 
 
 class PremioListSerializer(DynamicFieldsModelSerializer):
+    picture = serializers.SerializerMethodField('get_picture_url')
+
     class Meta:
         model = Race
         fields = [
             'id','name','picture'
         ]
+
+    def get_picture_url(self, obj):
+        return '%s%s%s' % (damain_url, settings.MEDIA_URL, obj.picture)
 
 
 
