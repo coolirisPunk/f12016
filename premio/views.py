@@ -36,6 +36,7 @@ class EventDayViewSet(LoggingMixin, CustomFieldsMixin, ActiveDesactiveMixin, vie
         instance = EventDay.objects.create(**validated_data)
         return instance
 
+
 class CategoryNewViewSet(LoggingMixin, CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewSet):
     """
     Category New endpoints
