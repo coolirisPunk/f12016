@@ -120,7 +120,7 @@ class RelatedNewList(ListAPIView):
 
 
 
-class PremioViewSet(viewsets.ModelViewSet):
+class PremioViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewSet):
     """
     Premios endpoints
     """
@@ -136,7 +136,11 @@ class PremioViewSet(viewsets.ModelViewSet):
     def list(self, request, client_pk=None):
         queryset = Race.objects.all().order_by('name')
         serializer = PremioListSerializer(queryset, many=True)
-        return Response(serializer.data)
+        return Response({"count": len(serializer.data),
+                     "next": None,
+                     "previous": None,
+                     "results": [serializer.data]
+                     })
 
 
     def retrieve(self, request, pk=None):
