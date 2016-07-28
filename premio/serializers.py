@@ -85,17 +85,22 @@ class PremioDetailSerializer(DynamicFieldsModelSerializer):
         ]
 
 class PilotoListSerializer(DynamicFieldsModelSerializer):
+    picture = serializers.SerializerMethodField('get_picture_url')
+    
     class Meta:
-        model = Race
+        model = Driver
         fields = [
             'id','name','picture'
         ]
+
+    def get_picture_url(self, obj):
+        return '%s%s%s' % (damain_url, settings.MEDIA_URL, obj.picture)
 
 
 
 class PilotoDetailSerializer(DynamicFieldsModelSerializer):
     class Meta:
-        model = Race
+        model = Driver
         fields = [
             'id','name'
         ]
