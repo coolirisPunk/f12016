@@ -223,7 +223,11 @@ class PilotoViewSet(viewsets.ModelViewSet):
         print "list"
         queryset = Driver.objects.all().order_by('name')
         serializer = PilotoListSerializer(queryset, many=True)
-        return Response(serializer.data)
+        return Response({"count": len(serializer.data),
+             "next": None,
+             "previous": None,
+             "results": serializer.data
+             })
 
 
     def retrieve(self, request, pk=None):
