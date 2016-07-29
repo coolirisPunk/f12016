@@ -236,7 +236,7 @@ class PilotoViewSet(viewsets.ModelViewSet):
         d_photos = d.photodriver_set.all()
         photos = []
         for p in d_photos:
-            photos.append({"id":p.pk,"name":p.name,"picture":damain_url + settings.MEDIA_URL + str(p.picture)})
+            photos.append({"id":p.pk,"name":p.name,"picture":damain_url + settings.MEDIA_URL + str(p.picture),"thumbnail":damain_url + settings.MEDIA_URL + str(p.thumbnail)})
         driver = {"id": d.pk, "name": d.name, "number":d.number,"nationality":d.nationality, "birthday":d.birthday,
                   "place_of_birth":d.place_of_birth,"championships":d.championships,"photos": photos}
 
