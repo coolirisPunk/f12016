@@ -21,7 +21,7 @@ DATABASES = {
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': normpath(join(SITE_ROOT, "db.sqlite3")),
 #     }
-}
+#}
 # ######### EMAIL CONFIGURATION
 EMAIL_USE_TLS = True
 EMAIL_HOST = get_secret('EMAIL_HOST')
