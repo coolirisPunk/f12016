@@ -145,7 +145,7 @@ class Driver(models.Model):
 class PhotoDriver(models.Model):
     name = models.CharField(max_length=100)
     picture = models.ImageField(upload_to='drivers/slides', help_text='200px X 45px')
-    thumbnail = models.ImageField(upload_to='drivers/slides', help_text='200px X 45px')
+    #thumbnail = models.ImageField(upload_to='drivers/slides', help_text='200px X 45px')
     driver = models.ForeignKey(Driver)
 
     def __unicode__(self):
