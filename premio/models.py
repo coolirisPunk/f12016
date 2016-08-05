@@ -163,7 +163,7 @@ class Position(models.Model):
     q1 = models.CharField(max_length=50, blank=True)
     q2 = models.CharField(max_length=50, blank=True)
     q3 = models.CharField(max_length=50, blank=True)
-    points = models.CharField(max_length=50, blank=True)
+    points = models.CharField(max_length=50, blank=True, default=0)
     phase = models.ForeignKey(Phase)
     driver = models.ForeignKey(Driver)
 

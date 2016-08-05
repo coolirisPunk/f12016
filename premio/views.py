@@ -70,7 +70,7 @@ class NewList(ListAPIView):
         return []
 
 
-class LastNewsList(LoggingMixin, CustomFieldsMixin, ActiveDesactiveMixin, ListAPIView):
+class LastNewsList(CustomFieldsMixin, ActiveDesactiveMixin, ListAPIView):
     serializer_class = NewListSerializer
     permission_classes = [IsAuthenticated, DjangoModelPermissions]
     model = New
