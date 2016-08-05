@@ -22,7 +22,7 @@ def get_domain():
 
 damain_url = Site.objects.get_current().domain
 
-class EventDayViewSet(LoggingMixin, CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewSet):
+class EventDayViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewSet):
     """
     Event Day endpoints
     """
