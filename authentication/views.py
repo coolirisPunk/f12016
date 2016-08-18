@@ -8,11 +8,10 @@ from rest_framework_tracking.mixins import LoggingMixin
 
 class FacebookLogin(LoggingMixin, SocialLoginView):
     adapter_class = FacebookOAuth2Adapter
-
+    permission_classes = []
 
 
 class TwitterLogin(LoginView):
     serializer_class = TwitterLoginSerializer
     adapter_class = TwitterOAuthAdapter
 
-   
