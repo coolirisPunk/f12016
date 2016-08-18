@@ -4,9 +4,9 @@ from rest_auth.registration.views import SocialLoginView
 from allauth.socialaccount.providers.twitter.views import TwitterOAuthAdapter
 from rest_auth.views import LoginView
 from rest_auth.social_serializers import TwitterLoginSerializer
+from rest_framework_tracking.mixins import LoggingMixin
 
-
-class FacebookLogin(SocialLoginView):
+class FacebookLogin(LoggingMixin, SocialLoginView):
     adapter_class = FacebookOAuth2Adapter
 
 
