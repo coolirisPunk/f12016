@@ -8094,3 +8094,5 @@ ImproperlyConfigured: This query requires pytz, but it isn't installed.
 Not Found: /
 Not Found: /favicon.ico
 Not Found: /favicon.ico
+Not Found: /
+Not Found: /favicon.ico
