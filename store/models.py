@@ -21,7 +21,7 @@ class Seller(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
-    picture = models.ImageField(upload_to='store/products', null=True, blank=True)
+    #picture = models.ImageField(upload_to='store/products', null=True, blank=True)
     description = models.TextField()
     price = models.FloatField()
     review = models.FloatField(blank=True, null=True)
