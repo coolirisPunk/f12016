@@ -13,7 +13,7 @@ class UserProfileSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = UserProfile
         fields = [
-            'id','zone','grada','section','fila','seat','user'
+            'id','zone','grada','section','fila','seat','speed_lover','user'
             ]
 
 class UserCustomSerializer(DynamicFieldsModelSerializer):
@@ -38,7 +38,7 @@ class UserProfileCustomSerializer(DynamicFieldsModelSerializer):
         model = UserProfile
         fields = [
             'userid', 'username', 'email', 'first_name', 'last_name',
-            'id', 'zone', 'grada', 'section', 'fila', 'seat'
+            'id', 'zone', 'grada', 'section', 'fila', 'seat','speed_lover'
         ]
 
 

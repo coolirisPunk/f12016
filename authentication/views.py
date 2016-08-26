@@ -85,6 +85,9 @@ class UserProfileViewSet(viewsets.ModelViewSet):
         return queryset
 
     def create(self,request, *args, **kwargs):
+        user = self.request.user
+        if user is not None:
+            request.data["user"] = user.pk
         serializer = UserProfileSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
