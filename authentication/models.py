@@ -9,11 +9,11 @@ from django.conf.urls.static import static
 class UserProfile(models.Model):
     user = models.OneToOneField(User,related_name='user_profile')
     # custom fields for user
-    zone = models.CharField(max_length=10,null=True, blank=True)
-    grada = models.CharField(max_length=10,null=True, blank=True)
-    section = models.CharField(max_length=10,null=True, blank=True)
-    fila = models.CharField(max_length=10,null=True, blank=True)
-    seat = models.CharField(max_length=10,null=True, blank=True)
+    zone = models.IntegerField(max_length=3,null=True, blank=True, default=0)
+    grada = models.IntegerField(max_length=3,null=True, blank=True, default=0)
+    section = models.IntegerField(max_length=3,null=True, blank=True, default=0)
+    fila = models.IntegerField(max_length=3,null=True, blank=True, default=0)
+    seat = models.IntegerField(max_length=3,null=True, blank=True, default=0)
     speed_lover_options = (
         ('speed_lover_1', 'Speed Lover 1',),
         ('speed_lover_2', 'Speed Lover 2',),
