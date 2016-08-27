@@ -8,22 +8,11 @@ UserModel = get_user_model()
 
 
 class UserProfileSerializer(DynamicFieldsModelSerializer):
-    #car = CarSerializer(read_only=True)
-    #hotels = HotelSerializer(many=True, read_only=True)
     class Meta:
         model = UserProfile
         fields = [
             'id','zone','grada','section','fila','seat','speed_lover','user'
             ]
-
-class UserCustomSerializer(DynamicFieldsModelSerializer):
-    user_profile = UserProfileSerializer(read_only=True)
-    class Meta:
-        model = UserModel
-        fields = [
-            'id', 'username', 'email', 'first_name', 'last_name', 'user_profile'
-        ]
-
 
 
 class UserProfileCustomSerializer(DynamicFieldsModelSerializer):
@@ -43,8 +32,6 @@ class UserProfileCustomSerializer(DynamicFieldsModelSerializer):
 
 
     def update(self, instance, validated_data):
-        print instance
-        print validated_data
         profile_data = validated_data.pop('user', None)
         if profile_data is not None:
             current_profile = instance.user
