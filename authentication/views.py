@@ -86,11 +86,12 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 
     def create(self,request, *args, **kwargs):
         user = self.request.user
+        print user.first_name
         if user is not None:
             request.data["user"] = user.pk
             request.data["username"] = user.username
-            request.data["first_name"] = user.first_name
-            request.data["last_name"] = user.last_name
+            request.data["first_name"] = "first_name"
+            request.data["last_name"] = "last_name"
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
