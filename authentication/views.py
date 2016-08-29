@@ -88,7 +88,10 @@ class UserProfileViewSet(viewsets.ModelViewSet):
         user = self.request.user
         if user is not None:
             request.data["user"] = user.pk
-        serializer = UserProfileSerializer(data=request.data)
+            request.data["username"] = user.username
+            request.data["first_name"] = user.first_name
+            request.data["last_name"] = user.last_name
+        serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)

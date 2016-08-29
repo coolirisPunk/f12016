@@ -30,6 +30,15 @@ class UserProfileCustomSerializer(DynamicFieldsModelSerializer):
             'id', 'zone', 'grada', 'section', 'fila', 'seat','speed_lover'
         ]
 
+    def create(self, validated_data):
+        print validated_data
+        profile_data = validated_data.pop('user', None)
+        request = self.context.get("request", None)
+        if request and hasattr(request, "user"):
+            user = request.user
+            validated_data['user_id'] = user.pk
+
+        return UserProfile.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
         profile_data = validated_data.pop('user', None)
