@@ -22,8 +22,7 @@ urlpatterns = [
     url(r'^ranking_general/$', RankingGeneralViewSet.as_view()),
     url(r'^news/category_news/$', CategoryNewList.as_view()),
     url(r'^news/last_news/(?P<last_news>[0-9]+)/$', LastNewsList.as_view()),
-    url(r'^news/category_news/(?P<pk_category>[0-9]+)/$', NewList.as_view()),
-    url(r'^news/category_news/(?P<pk_category>[0-9]+)/(?P<pk_new>[0-9]+)/$', NewItemView.as_view()),
-    url(r'^news/related_news/(?P<pk_category>[0-9]+)/(?P<pk_new>[0-9]+)/$', RelatedNewList.as_view()),
+    url(r'^news/category_news/(?P<pk_category>[0-9]+)/news/$', NewList.as_view()),
+    url(r'^news/category_news/(?P<pk_category>[0-9]+)/news/(?P<pk_new>[0-9]+)/$', NewItemView.as_view()),
+    url(r'^news/related_news/(?P<pk_category>[0-9]+)/news/(?P<pk_new>[0-9]+)/$', RelatedNewList.as_view()),
 ]
-
