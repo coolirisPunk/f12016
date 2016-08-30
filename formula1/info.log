@@ -9605,3 +9605,413 @@ Not Found: /missing-admin-media-prefix/img/icon_calendar.gif
 Not Found: /favicon.ico
 Not Found: /missing-admin-media-prefix/img/icon_calendar.gif
 Not Found: /missing-admin-media-prefix/img/icon_calendar.gif
+Not Found: /
+Not Found: /favicon.ico
+Not Found: /
+Not Found: /favicon.ico
+Internal Server Error: /api/store/category_products/1/sellers/ç/
+Traceback (most recent call last):
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/viewsets.py", line 87, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/views.py", line 466, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/views.py", line 463, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/django/f12016/store/views.py", line 39, in retrieve
+    queryset = Seller.objects.filter(pk=pk, category_product=category_product_pk)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/models/manager.py", line 122, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/models/query.py", line 790, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/models/query.py", line 808, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1243, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1269, in _add_q
+    allow_joins=allow_joins, split_subq=split_subq,
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1203, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1099, in build_lookup
+    return final_lookup(lhs, rhs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/models/lookups.py", line 19, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/models/lookups.py", line 57, in get_prep_lookup
+    return self.lhs.output_field.get_prep_lookup(self.lookup_name, self.rhs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 744, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 976, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: '\xe7'
+Not Found: /
+Not Found: /
+Not Found: /CHANGELOG.txt
+Not Found: /readme.html
+Not Found: /get
+Not Found: /
+Not Found: /
+Not Found: /missing-admin-media-prefix/img/icon_calendar.gif
+Not Found: /missing-admin-media-prefix/img/icon_calendar.gif
+Not Found: /missing-admin-media-prefix/img/icon_calendar.gif
+Not Found: /missing-admin-media-prefix/img/icon_calendar.gif
+Not Found: /missing-admin-media-prefix/img/icon_calendar.gif
+Not Found: /missing-admin-media-prefix/img/icon_calendar.gif
+Internal Server Error: /api/auth/rest-auth/facebook/
+Traceback (most recent call last):
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/views.py", line 466, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/views.py", line 463, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_auth/views.py", line 50, in post
+    self.serializer.is_valid(raise_exception=True)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/serializers.py", line 213, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/serializers.py", line 410, in run_validation
+    value = self.validate(value)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_auth/registration/serializers.py", line 117, in validate
+    login.save(request, connect=True)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/models.py", line 224, in save
+    user.save()
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/contrib/auth/base_user.py", line 74, in save
+    super(AbstractBaseUser, self).save(*args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/models/base.py", line 708, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/models/base.py", line 736, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/models/base.py", line 820, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/models/base.py", line 859, in _do_insert
+    using=using, raw=raw)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/models/manager.py", line 122, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/models/query.py", line 1039, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 1060, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/utils.py", line 95, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+IntegrityError: duplicate key value violates unique constraint "auth_user_username_key"
+DETAIL:  Key (username)=() already exists.
+
+Internal Server Error: /api/auth/rest-auth/facebook/
+Traceback (most recent call last):
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/views.py", line 466, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/views.py", line 463, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_auth/views.py", line 50, in post
+    self.serializer.is_valid(raise_exception=True)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/serializers.py", line 213, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/serializers.py", line 410, in run_validation
+    value = self.validate(value)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_auth/registration/serializers.py", line 111, in validate
+    complete_social_login(request, login)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 142, in complete_social_login
+    return _complete_social_login(request, sociallogin)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 158, in _complete_social_login
+    ret = _process_signup(request, sociallogin)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 49, in _process_signup
+    ret = complete_social_signup(request, sociallogin)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 167, in complete_social_signup
+    signal_kwargs={'sociallogin': sociallogin})
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/utils.py", line 167, in complete_signup
+    signal_kwargs=signal_kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/utils.py", line 128, in perform_login
+    send_email_confirmation(request, user, signup=signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/utils.py", line 296, in send_email_confirmation
+    signup=signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/models.py", line 58, in send_confirmation
+    confirmation.send(request, signup=signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/models.py", line 122, in send
+    get_adapter().send_confirmation_mail(request, self, signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/adapter.py", line 369, in send_confirmation_mail
+    ctx)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/adapter.py", line 110, in send_mail
+    msg.send()
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/mail/message.py", line 292, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 100, in send_messages
+    new_conn_created = self.open()
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 58, in open
+    self.connection = connection_class(self.host, self.port, **connection_params)
+  File "/usr/lib/python2.7/smtplib.py", line 256, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/lib/python2.7/smtplib.py", line 316, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/lib/python2.7/smtplib.py", line 291, in _get_socket
+    return socket.create_connection((host, port), timeout)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/gevent/socket.py", line 86, in create_connection
+    raise err
+error: [Errno 111] Connection refused
+Internal Server Error: /api/auth/rest-auth/facebook/
+Traceback (most recent call last):
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/views.py", line 466, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/views.py", line 463, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_auth/views.py", line 50, in post
+    self.serializer.is_valid(raise_exception=True)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/serializers.py", line 213, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/serializers.py", line 410, in run_validation
+    value = self.validate(value)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_auth/registration/serializers.py", line 111, in validate
+    complete_social_login(request, login)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 142, in complete_social_login
+    return _complete_social_login(request, sociallogin)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 158, in _complete_social_login
+    ret = _process_signup(request, sociallogin)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 49, in _process_signup
+    ret = complete_social_signup(request, sociallogin)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 167, in complete_social_signup
+    signal_kwargs={'sociallogin': sociallogin})
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/utils.py", line 167, in complete_signup
+    signal_kwargs=signal_kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/utils.py", line 128, in perform_login
+    send_email_confirmation(request, user, signup=signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/utils.py", line 296, in send_email_confirmation
+    signup=signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/models.py", line 58, in send_confirmation
+    confirmation.send(request, signup=signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/models.py", line 122, in send
+    get_adapter().send_confirmation_mail(request, self, signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/adapter.py", line 369, in send_confirmation_mail
+    ctx)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/adapter.py", line 110, in send_mail
+    msg.send()
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/mail/message.py", line 292, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 100, in send_messages
+    new_conn_created = self.open()
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 58, in open
+    self.connection = connection_class(self.host, self.port, **connection_params)
+  File "/usr/lib/python2.7/smtplib.py", line 256, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/lib/python2.7/smtplib.py", line 316, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/lib/python2.7/smtplib.py", line 291, in _get_socket
+    return socket.create_connection((host, port), timeout)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/gevent/socket.py", line 86, in create_connection
+    raise err
+error: [Errno 111] Connection refused
+Not Found: /missing-admin-media-prefix/img/icon_calendar.gif
+Not Found: /admin/socialaccount/socialapp/1/change/undefinedimg/icon-unknown.gif/change/
+Not Found: /admin/socialaccount/socialapp/1/change/undefinedimg/selector-search.gif/change/
+Not Found: /admin/socialaccount/socialapp/1/change/undefinedimg/selector-search.gif/change/
+Not Found: /admin/socialaccount/socialapp/1/change/undefinedimg/icon-unknown.gif/change/
+Not Found: /admin/socialaccount/socialapp/1/change/undefinedimg/selector-search.gif/change/
+Not Found: /admin/socialaccount/socialapp/1/change/undefinedimg/icon-unknown.gif/change/
+Internal Server Error: /api/auth/rest-auth/facebook/
+Traceback (most recent call last):
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/views.py", line 466, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/views.py", line 463, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_auth/views.py", line 50, in post
+    self.serializer.is_valid(raise_exception=True)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/serializers.py", line 213, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/serializers.py", line 410, in run_validation
+    value = self.validate(value)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_auth/registration/serializers.py", line 111, in validate
+    complete_social_login(request, login)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 142, in complete_social_login
+    return _complete_social_login(request, sociallogin)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 158, in _complete_social_login
+    ret = _process_signup(request, sociallogin)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 49, in _process_signup
+    ret = complete_social_signup(request, sociallogin)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 167, in complete_social_signup
+    signal_kwargs={'sociallogin': sociallogin})
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/utils.py", line 167, in complete_signup
+    signal_kwargs=signal_kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/utils.py", line 128, in perform_login
+    send_email_confirmation(request, user, signup=signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/utils.py", line 296, in send_email_confirmation
+    signup=signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/models.py", line 58, in send_confirmation
+    confirmation.send(request, signup=signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/models.py", line 122, in send
+    get_adapter().send_confirmation_mail(request, self, signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/adapter.py", line 369, in send_confirmation_mail
+    ctx)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/adapter.py", line 110, in send_mail
+    msg.send()
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/mail/message.py", line 292, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 100, in send_messages
+    new_conn_created = self.open()
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 58, in open
+    self.connection = connection_class(self.host, self.port, **connection_params)
+  File "/usr/lib/python2.7/smtplib.py", line 256, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/lib/python2.7/smtplib.py", line 316, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/lib/python2.7/smtplib.py", line 291, in _get_socket
+    return socket.create_connection((host, port), timeout)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/gevent/socket.py", line 86, in create_connection
+    raise err
+error: [Errno 111] Connection refused
+Internal Server Error: /api/auth/rest-auth/facebook/
+Traceback (most recent call last):
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/views.py", line 466, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/views.py", line 463, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_auth/views.py", line 50, in post
+    self.serializer.is_valid(raise_exception=True)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/serializers.py", line 213, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/serializers.py", line 410, in run_validation
+    value = self.validate(value)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_auth/registration/serializers.py", line 111, in validate
+    complete_social_login(request, login)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 142, in complete_social_login
+    return _complete_social_login(request, sociallogin)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 158, in _complete_social_login
+    ret = _process_signup(request, sociallogin)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 49, in _process_signup
+    ret = complete_social_signup(request, sociallogin)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 167, in complete_social_signup
+    signal_kwargs={'sociallogin': sociallogin})
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/utils.py", line 167, in complete_signup
+    signal_kwargs=signal_kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/utils.py", line 128, in perform_login
+    send_email_confirmation(request, user, signup=signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/utils.py", line 296, in send_email_confirmation
+    signup=signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/models.py", line 58, in send_confirmation
+    confirmation.send(request, signup=signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/models.py", line 122, in send
+    get_adapter().send_confirmation_mail(request, self, signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/adapter.py", line 369, in send_confirmation_mail
+    ctx)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/adapter.py", line 110, in send_mail
+    msg.send()
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/mail/message.py", line 292, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 100, in send_messages
+    new_conn_created = self.open()
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 58, in open
+    self.connection = connection_class(self.host, self.port, **connection_params)
+  File "/usr/lib/python2.7/smtplib.py", line 256, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/lib/python2.7/smtplib.py", line 316, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/lib/python2.7/smtplib.py", line 291, in _get_socket
+    return socket.create_connection((host, port), timeout)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/gevent/socket.py", line 86, in create_connection
+    raise err
+error: [Errno 111] Connection refused
+Not Found: /missing-admin-media-prefix/img/icon_calendar.gif
+Internal Server Error: /api/auth/rest-auth/facebook/
+Traceback (most recent call last):
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/views.py", line 466, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/views.py", line 463, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_auth/views.py", line 50, in post
+    self.serializer.is_valid(raise_exception=True)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/serializers.py", line 213, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_framework/serializers.py", line 410, in run_validation
+    value = self.validate(value)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/rest_auth/registration/serializers.py", line 111, in validate
+    complete_social_login(request, login)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 142, in complete_social_login
+    return _complete_social_login(request, sociallogin)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 158, in _complete_social_login
+    ret = _process_signup(request, sociallogin)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 49, in _process_signup
+    ret = complete_social_signup(request, sociallogin)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/socialaccount/helpers.py", line 167, in complete_social_signup
+    signal_kwargs={'sociallogin': sociallogin})
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/utils.py", line 167, in complete_signup
+    signal_kwargs=signal_kwargs)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/utils.py", line 128, in perform_login
+    send_email_confirmation(request, user, signup=signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/utils.py", line 296, in send_email_confirmation
+    signup=signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/models.py", line 58, in send_confirmation
+    confirmation.send(request, signup=signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/models.py", line 122, in send
+    get_adapter().send_confirmation_mail(request, self, signup)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/adapter.py", line 369, in send_confirmation_mail
+    ctx)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/allauth/account/adapter.py", line 110, in send_mail
+    msg.send()
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/mail/message.py", line 292, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 100, in send_messages
+    new_conn_created = self.open()
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 58, in open
+    self.connection = connection_class(self.host, self.port, **connection_params)
+  File "/usr/lib/python2.7/smtplib.py", line 256, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/lib/python2.7/smtplib.py", line 316, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/lib/python2.7/smtplib.py", line 291, in _get_socket
+    return socket.create_connection((host, port), timeout)
+  File "/home/django/venvs/f12016/local/lib/python2.7/site-packages/gevent/socket.py", line 86, in create_connection
+    raise err
+error: [Errno 111] Connection refused
