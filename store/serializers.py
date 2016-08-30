@@ -32,11 +32,11 @@ class SellerSerializer(DynamicFieldsModelSerializer):
         return '%s%s%s' % (damain_url, settings.MEDIA_URL, obj.picture)
 
 class ProductSerializer(DynamicFieldsModelSerializer):
-    picture = serializers.SerializerMethodField('get_picture_url')
+    #picture = serializers.SerializerMethodField('get_picture_url')
     class Meta:
         model = Product
         fields = [
-            'id', 'name', "picture" ,'description', 'price','review',
+            'id', 'name' ,'description', 'price','review',
         ]
 
     def get_picture_url(self, obj):
