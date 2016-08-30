@@ -110,6 +110,12 @@ class UserProfileViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     def update(self, request, pk=None, *args, **kwargs):
+        user = self.request.user
+        if user is not None:
+            request.data["user"] = user.pk
+            request.data["username"] = user.username
+            request.data["first_name"] = "first_name"
+            request.data["last_name"] = "last_name"        
         instance = self.get_object()
         serializer = self.get_serializer(instance, data=request.data)
         serializer.is_valid(raise_exception=True)
