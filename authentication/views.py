@@ -115,7 +115,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
             request.data["user"] = user.pk
             request.data["username"] = user.username
             request.data["first_name"] = "first_name"
-            request.data["last_name"] = "last_name"        
+            request.data["last_name"] = "last_name"
         instance = self.get_object()
         serializer = self.get_serializer(instance, data=request.data)
         serializer.is_valid(raise_exception=True)

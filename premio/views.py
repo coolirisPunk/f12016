@@ -243,7 +243,7 @@ class PilotoViewSet(viewsets.ModelViewSet):
         return Response(driver)
 
 
-class CiudadHotelesViewSet(LoggingMixin, CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewSet):
+class CiudadHotelesViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewSet):
     """
     Event Day endpoints
     """
@@ -258,7 +258,7 @@ class CiudadHotelesViewSet(LoggingMixin, CustomFieldsMixin, ActiveDesactiveMixin
         return instance
 
 
-class CiudadRestaurantesViewSet(LoggingMixin, CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewSet):
+class CiudadRestaurantesViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewSet):
     """
     Event Day endpoints
     """
@@ -272,7 +272,7 @@ class CiudadRestaurantesViewSet(LoggingMixin, CustomFieldsMixin, ActiveDesactive
         instance = Restaurant.objects.create(**validated_data)
         return instance
 
-class CiudadLugaresVisitarViewSet(LoggingMixin, CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewSet):
+class CiudadLugaresVisitarViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewSet):
     """
     Event Day endpoints
     """
@@ -285,4 +285,3 @@ class CiudadLugaresVisitarViewSet(LoggingMixin, CustomFieldsMixin, ActiveDesacti
     def create(self, validated_data):
         instance = Place.objects.create(**validated_data)
         return instance
-
