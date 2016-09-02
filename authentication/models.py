@@ -15,8 +15,10 @@ class UserProfile(models.Model):
     fila = models.CharField(max_length=10,null=True, blank=True)
     seat = models.CharField(max_length=10,null=True, blank=True)
     speed_lover_options = (
-        ('speed_lover_1', 'Speed Lover 1',),
-        ('speed_lover_2', 'Speed Lover 2',),
+        ('speed_lovers', 'Speed Lovers',),
+        ('euphoric_fans', 'Euphoric Fans',),
+        ('true_racers', 'True Racers',),
+        ('vip_party_racers', 'VIP Party Racers',),
     )
     speed_lover = models.CharField(choices=speed_lover_options, max_length=20)
 
