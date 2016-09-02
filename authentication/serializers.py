@@ -7,13 +7,20 @@ from django.contrib.auth import get_user_model
 UserModel = get_user_model()
 
 
-class UserProfileSerializer(DynamicFieldsModelSerializer):
-    class Meta:
-        model = UserProfile
-        fields = [
-            'id','zone','grada','section','fila','seat','speed_lover','user'
-            ]
+class UserCustomSerializer(DynamicFieldsModelSerializer):
+    profile_id = serializers.CharField(source='user_profile.pk', read_only=True)
+    zone = serializers.CharField(source='user_profile.zone', read_only=True)
+    grada = serializers.CharField(source='user_profile.grada', read_only=True)
+    section = serializers.CharField(source='user_profile.section', read_only=True)
+    fila = serializers.CharField(source='user_profile.fila', read_only=True)
+    seat = serializers.CharField(source='user_profile.seat', read_only=True)
+    speed_lover = serializers.CharField(source='user_profile.speed_lover', read_only=True)
 
+    class Meta:
+        model = UserModel
+        fields = [
+            'id', 'username','email','first_name','last_name','profile_id','zone','grada','section','fila','seat','speed_lover'
+        ]
 
 class UserProfileCustomSerializer(DynamicFieldsModelSerializer):
     #user_profile = UserProfileSerializer(read_only=True)

@@ -24,4 +24,3 @@ class UserProfile(models.Model):
 
     def __unicode__(self):
         return str(self.user.first_name)
-

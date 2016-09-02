@@ -47,28 +47,6 @@ class ProfileViewSet(APIView):
         return Response("post")
 
 
-
-# class UserProfileViewSet(RetrieveUpdateAPIView):
-#     """
-#     Returns User's details in JSON format.
-#     Accepts the following GET parameters: token
-#     Accepts the following POST parameters:
-#         Required: token
-#         Optional: email, first_name, last_name and UserProfile fields
-#     Returns the updated UserProfile and/or User object.
-#     """
-
-#     serializer_class = UserProfileSerializer
-#     permission_classes = (IsAuthenticated,)
-
-
-#     def get_object(self):
-#         #print self.request.user.pk
-#         #print self.request.user.email
-#         #print self.request.user.username
-#         return self.request.user.user_profile
-
-
 class UserProfileViewSet(viewsets.ModelViewSet):
     """
     User endpoints
@@ -86,7 +64,6 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 
     def create(self,request, *args, **kwargs):
         user = self.request.user
-        print user.first_name
         if user is not None:
             request.data["user"] = user.pk
             request.data["username"] = user.username
@@ -99,8 +76,8 @@ class UserProfileViewSet(viewsets.ModelViewSet):
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
     def list(self, request, client_pk=None):
-        queryset = self.get_queryset
-        serializer = self.get_serializer(queryset)
+        queryset = self.request.user
+        serializer = UserCustomSerializer(queryset)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):

@@ -5,7 +5,7 @@ from rest_framework_nested import routers
 from allauth.account.views import confirm_email
 
 router = DefaultRouter()
-router.register(r'users', UserProfileViewSet, base_name='usuarios')
+router.register(r'user', UserProfileViewSet, base_name='user')
 urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^accounts/', include('allauth.urls')),
