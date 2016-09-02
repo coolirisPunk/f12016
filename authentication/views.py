@@ -99,9 +99,9 @@ class UserProfileViewSet(viewsets.ModelViewSet):
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
     def list(self, request, client_pk=None):
-        queryset = UserProfile.objects.all()
-        serializer = self.get_serializer(queryset, many=True)
-        return Response({"results": serializer.data})
+        queryset = self.get_queryset
+        serializer = self.get_serializer(queryset)
+        return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
 
