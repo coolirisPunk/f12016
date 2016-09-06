@@ -154,7 +154,6 @@ USE_TZ = True
 #STATIC_ROOT = normpath(join(BASE_DIR, 'assets'))
 STATIC_ROOT = normpath(join(SITE_ROOT, 'static'))
 
-print STATIC_ROOT
 
 STATIC_URL = '/static/'
 

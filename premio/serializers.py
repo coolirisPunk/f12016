@@ -7,11 +7,7 @@ from rest_framework import serializers
 from django.conf import settings
 from django.contrib.sites.models import Site
 
-
-def get_domain():
-    return "http://104.236.3.158"
-
-damain_url = Site.objects.get_current().domain
+domain_url = Site.objects.get_current().domain
  
 class EventSerializer(DynamicFieldsModelSerializer):
     class Meta:
@@ -49,6 +45,8 @@ class CategoryNewSerializer(DynamicFieldsModelSerializer):
 
 
 class NewListSerializer(DynamicFieldsModelSerializer):
+    thumbnail = serializers.SerializerMethodField('get_thumbnail_url')
+    picture = serializers.SerializerMethodField('get_picture_url')
     class Meta:
         model = New
         fields = [
@@ -56,11 +54,17 @@ class NewListSerializer(DynamicFieldsModelSerializer):
         ]
 
 class NewItemSerializer(DynamicFieldsModelSerializer):
+
     class Meta:
         model = New
         fields = [
             'id','short_title',"short_description","title","description","date","thumbnail","picture"
         ]
+    def get_thumbnail_url(self, obj):
+        return '%s%s%s' % (damain_url, settings.MEDIA_URL, obj.thumbnail)
+
+    def get_picture_url(self, obj):
+        return '%s%s%s' % (damain_url, settings.MEDIA_URL, obj.picture)
 
 
 class PremioListSerializer(DynamicFieldsModelSerializer):
