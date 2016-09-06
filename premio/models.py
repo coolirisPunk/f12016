@@ -117,7 +117,7 @@ class Phase(models.Model):
 
 class Team(models.Model):
     name = models.CharField(max_length=100)
-    picture = models.ImageField(upload_to='teams', help_text='200px X 45px')
+    picture = models.ImageField(upload_to='teams', help_text='200px X 45px',null=True,blank=True)
 
     def __unicode__(self):
         return str(self.name)
