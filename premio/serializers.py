@@ -45,8 +45,7 @@ class CategoryNewSerializer(DynamicFieldsModelSerializer):
 
 
 class NewListSerializer(DynamicFieldsModelSerializer):
-    thumbnail = serializers.SerializerMethodField('get_thumbnail_url')
-    picture = serializers.SerializerMethodField('get_picture_url')
+
     class Meta:
         model = New
         fields = [
@@ -54,7 +53,8 @@ class NewListSerializer(DynamicFieldsModelSerializer):
         ]
 
 class NewItemSerializer(DynamicFieldsModelSerializer):
-
+    thumbnail = serializers.SerializerMethodField('get_thumbnail_url')
+    picture = serializers.SerializerMethodField('get_picture_url')
     class Meta:
         model = New
         fields = [
