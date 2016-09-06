@@ -3,6 +3,7 @@ from rest_framework.routers import DefaultRouter, SimpleRouter
 from django.conf.urls import patterns, url, include
 from rest_framework_nested import routers
 from allauth.account.views import confirm_email
+from django.views.generic import TemplateView, RedirectView
 
 router = DefaultRouter()
 router.register(r'user', UserProfileViewSet, base_name='user')
