@@ -77,7 +77,7 @@ class PremioListSerializer(DynamicFieldsModelSerializer):
         ]
 
     def get_picture_url(self, obj):
-        return '%s%s%s' % (damain_url, settings.MEDIA_URL, obj.picture)
+        return '%s%s%s' % (domain_url, settings.MEDIA_URL, obj.picture)
 
 
 
@@ -98,7 +98,7 @@ class PilotoListSerializer(DynamicFieldsModelSerializer):
         ]
 
     def get_picture_url(self, obj):
-        return '%s%s%s' % (damain_url, settings.MEDIA_URL, obj.picture)
+        return '%s%s%s' % (domain_url, settings.MEDIA_URL, obj.picture)
 
 
 
