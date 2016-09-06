@@ -61,10 +61,10 @@ class NewItemSerializer(DynamicFieldsModelSerializer):
             'id','short_title',"short_description","title","description","date","thumbnail","picture"
         ]
     def get_thumbnail_url(self, obj):
-        return '%s%s%s' % (damain_url, settings.MEDIA_URL, obj.thumbnail)
+        return '%s%s%s' % (domain_url, settings.MEDIA_URL, obj.thumbnail)
 
     def get_picture_url(self, obj):
-        return '%s%s%s' % (damain_url, settings.MEDIA_URL, obj.picture)
+        return '%s%s%s' % (domain_url, settings.MEDIA_URL, obj.picture)
 
 
 class PremioListSerializer(DynamicFieldsModelSerializer):
