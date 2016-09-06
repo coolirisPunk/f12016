@@ -30,19 +30,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">API endpoints <span class="caret"></span></a>
 
-            <ul class="dropdown-menu" role="menu">
-                <!-- these pages don't require user token -->
-                <li><a href="{% url 'signup' %}">Signup</a></li>
-                <li><a href="{% url 'email-verification' %}">E-mail verification</a></li>
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'password-reset' %}">Password Reset</a></li>
-                <li><a href="{% url 'password-reset-confirm' %}">Password Reset Confirm</a></li>
-                <li class="divider"></li>
-                <!-- these pages require user token -->
-                <li><a href="{% url 'user-details' %}">User details</a></li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-                <li><a href="{% url 'password-change' %}">Password change</a></li>
-            </ul>
+
           </li>
         </ul>
 
