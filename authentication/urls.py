@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^rest-auth/twitter/$', TwitterLogin.as_view(), name='twitter_login'),
     # this url is used to generate email content
     url(r'^password-reset/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
-        TemplateView.as_view(template_name="password_reset_confirm.html"),
+        TemplateView.as_view(template_name="authentication/password_reset_confirm.html"),
         name='password_reset_confirm'),
 	url(r'^rest-auth/user-profile/', include(router.urls)),
 ]
