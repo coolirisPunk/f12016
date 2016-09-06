@@ -14,6 +14,8 @@ urlpatterns = [
     #url(r'^rest-auth/user-profile/', UserProfileViewSet.as_view({'get': 'list', 'post':'create'}), name='user_profile'),
 	url(r'^rest-auth/facebook/$', FacebookLogin.as_view(), name='fb_login'),
     url(r'^rest-auth/twitter/$', TwitterLogin.as_view(), name='twitter_login'),
-
+    url(r'^password-reset/confirm/$',
+        TemplateView.as_view(template_name="password_reset_confirm.html"),
+        name='password-reset-confirm'),
 	url(r'^rest-auth/user-profile/', include(router.urls)),
 ]
