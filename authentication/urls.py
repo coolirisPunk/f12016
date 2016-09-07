@@ -4,6 +4,7 @@ from django.conf.urls import patterns, url, include
 from rest_framework_nested import routers
 from allauth.account.views import confirm_email
 from django.views.generic import TemplateView, RedirectView
+from allauth.account.views import confirm_email as allauthemailconfirmation
 
 router = DefaultRouter()
 router.register(r'user', UserProfileViewSet, base_name='user')
@@ -19,5 +20,7 @@ urlpatterns = [
     url(r'^password-reset/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         TemplateView.as_view(template_name="password_reset_confirm.html"),
         name='password_reset_confirm'),
+        url(r'^account-confirm-email/(?P<key>\w+)/$', TemplateView.as_view(template_name="email_verification.html"),
+        name='account_confirm_email'),
 	url(r'^rest-auth/user-profile/', include(router.urls)),
 ]
