@@ -6,3 +6,19 @@
     {% include "fragments/email_verification_form.html" %}
   </div>
 {% endblock %}
+
+
+{% block script %}
+    <script type="text/javascript">
+        var url_elements = window.location.pathname.split('/');
+        if (url_elements.length > 2){
+            var key = url_elements[url_elements.length - 2];
+            if (uid !== undefined){
+            document.getElementById('key').value=key; 
+            }
+            else{
+                console.log("undefined key");
+            }
+        }
+    </script>
+{% endblock %}
