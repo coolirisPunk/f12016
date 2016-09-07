@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
 from common.serializers import DynamicFieldsModelSerializer
 from django.contrib.sites.models import Site
 from django.conf import settings
-damain_url = Site.objects.get_current().domain
+domain_url = Site.objects.get_current().domain
 
 
 class CategoryProductSerializer(DynamicFieldsModelSerializer):
@@ -17,7 +17,7 @@ class CategoryProductSerializer(DynamicFieldsModelSerializer):
         ]
 
     def get_picture_url(self, obj):
-        return '%s%s%s' % (damain_url, settings.MEDIA_URL, obj.picture)
+        return '%s%s%s' % (domain_url, settings.MEDIA_URL, obj.picture)
 
 
 class SellerSerializer(DynamicFieldsModelSerializer):
@@ -29,7 +29,7 @@ class SellerSerializer(DynamicFieldsModelSerializer):
         ]
 
     def get_picture_url(self, obj):
-        return '%s%s%s' % (damain_url, settings.MEDIA_URL, obj.picture)
+        return '%s%s%s' % (domain_url, settings.MEDIA_URL, obj.picture)
 
 class ProductSerializer(DynamicFieldsModelSerializer):
     #picture = serializers.SerializerMethodField('get_picture_url')
@@ -40,4 +40,4 @@ class ProductSerializer(DynamicFieldsModelSerializer):
         ]
 
     def get_picture_url(self, obj):
-        return '%s%s%s' % (damain_url, settings.MEDIA_URL, obj.picture)
+        return '%s%s%s' % (domain_url, settings.MEDIA_URL, obj.picture)

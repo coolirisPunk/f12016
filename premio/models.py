@@ -183,7 +183,7 @@ class Hotel(TimeStampModel):
     latitude = models.CharField(max_length=100)
     longitude = models.CharField(max_length=100)
     ordering = models.IntegerField(default=0)
-    #website = models.CharField(max_length=100,blank=True, null=True)
+    website = models.CharField(max_length=100,blank=True, null=True)
 
     def __unicode__(self):
         return smart_text(self.name)
