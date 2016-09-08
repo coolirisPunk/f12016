@@ -21,7 +21,4 @@ admin.site.register(PhotoDriver)
 admin.site.register(Hotel)
 admin.site.register(Restaurant)
 admin.site.register(Place)
-
-
-
-
+admin.site.register(Formula1Taste)

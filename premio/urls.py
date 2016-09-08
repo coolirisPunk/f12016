@@ -13,8 +13,9 @@ router.register(r'horarios', EventDayViewSet, base_name='horarios')
 router.register(r'premios', PremioViewSet, base_name='premios')
 router.register(r'pilotos', PilotoViewSet, base_name='pilotos')
 router.register(r'la_ciudad/hoteles', CiudadHotelesViewSet, base_name='hoteles')
-router.register(r'la_ciudad/restaurantes', CiudadRestaurantesViewSet, base_name='restaurantes')
+#router.register(r'la_ciudad/restaurantes', CiudadRestaurantesViewSet, base_name='restaurantes')
 router.register(r'la_ciudad/a_donde_ir', CiudadLugaresVisitarViewSet, base_name='a_donde_ir')
+router.register(r'la_ciudad/sabor_del_chef', SaborDelChefViewSet, base_name='sabor_del_chef')
 
 
 urlpatterns = [

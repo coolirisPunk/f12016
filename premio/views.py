@@ -284,3 +284,13 @@ class CiudadLugaresVisitarViewSet(CustomFieldsMixin, ActiveDesactiveMixin, views
     def create(self, validated_data):
         instance = Place.objects.create(**validated_data)
         return instance
+
+class SaborDelChefViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewSet):
+    """
+    Event Day endpoints
+    """
+    serializer_class = Formula1TasteSerializer
+    queryset = Formula1Taste.objects.all()
+    permission_classes = []
+    model = Formula1Taste
+    default_fields = ['id', 'name', 'chef', 'website','picture','latitude','longitude','ordering']

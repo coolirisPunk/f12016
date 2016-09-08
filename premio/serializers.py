@@ -131,3 +131,11 @@ class LugarVisitarSerializer(DynamicFieldsModelSerializer):
         fields = [
             'id', 'name', 'location', 'exposition', 'phone','picture','latitude','longitude','ordering'
         ]
+
+
+class Formula1TasteSerializer(DynamicFieldsModelSerializer):
+    class Meta:
+        model = Formula1Taste
+        fields = [
+            'id', 'name', 'location', 'exposition', 'phone','picture','latitude','longitude','ordering'
+        ]

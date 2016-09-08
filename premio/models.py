@@ -219,11 +219,10 @@ class Formula1Taste(TimeStampModel):
     name = models.CharField(max_length=100)
     chef = models.CharField(max_length=100, null=True, blank=True)
     website = models.CharField(max_length=100, null=True, blank=True)
-    picture = models.ImageField(upload_to='la_ciudad/puntos_de_interes', help_text='718px X 324px')
+    picture = models.ImageField(upload_to='la_ciudad/sabor_del_chef', help_text='718px X 324px')
     latitude = models.CharField(max_length=100)
     longitude = models.CharField(max_length=100)
     ordering = models.IntegerField(default=0)
 
     def __unicode__(self):
         return smart_text(self.name)
-
