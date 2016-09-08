@@ -177,13 +177,13 @@ class Position(models.Model):
 
 class Hotel(TimeStampModel):
     name = models.CharField(max_length=100)
-    location = models.CharField(max_length=100)
+    location = models.CharField(max_length=100, blank=True, null=True)
     phone = models.CharField(max_length=100)
     picture = models.ImageField(upload_to='la_ciudad/hoteles', help_text='718px X 324px')
     latitude = models.CharField(max_length=100)
     longitude = models.CharField(max_length=100)
     ordering = models.IntegerField(default=0)
-    website = models.CharField(max_length=100,blank=True, null=True)
+    website = models.CharField(max_length=100, blank=True, null=True)
 
     def __unicode__(self):
         return smart_text(self.name)
@@ -204,7 +204,8 @@ class Restaurant(TimeStampModel):
 
 class Place(TimeStampModel):
     name = models.CharField(max_length=100)
-    location = models.CharField(max_length=100)
+    exposition = models.CharField(max_length=100, null=True, blank=True)
+    location = models.CharField(max_length=100, null=True, blank=True)
     phone = models.CharField(max_length=100)
     picture = models.ImageField(upload_to='la_ciudad/puntos_de_interes', help_text='718px X 324px')
     latitude = models.CharField(max_length=100)
@@ -213,3 +214,16 @@ class Place(TimeStampModel):
 
     def __unicode__(self):
         return smart_text(self.name)
+
+class Formula1Taste(TimeStampModel):
+    name = models.CharField(max_length=100)
+    chef = models.CharField(max_length=100, null=True, blank=True)
+    website = models.CharField(max_length=100, null=True, blank=True)
+    picture = models.ImageField(upload_to='la_ciudad/puntos_de_interes', help_text='718px X 324px')
+    latitude = models.CharField(max_length=100)
+    longitude = models.CharField(max_length=100)
+    ordering = models.IntegerField(default=0)
+
+    def __unicode__(self):
+        return smart_text(self.name)
+

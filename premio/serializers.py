@@ -114,7 +114,7 @@ class HotelSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Hotel
         fields = [
-            'id', 'name', 'location', 'phone','picture','latitude','longitude','ordering'
+            'id', 'name', 'location', 'website', 'phone','picture','latitude','longitude','ordering'
         ]
 
 
@@ -122,12 +122,12 @@ class RestauranteSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Restaurant
         fields = [
-            'id', 'name', 'location', 'phone','picture','latitude','longitude','ordering'
+            'id', 'name', 'location', 'phone', 'picture', 'latitude','longitude','ordering'
         ]
 
 class LugarVisitarSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Place
         fields = [
-            'id', 'name', 'location', 'phone','picture','latitude','longitude','ordering'
+            'id', 'name', 'location', 'exposition', 'phone','picture','latitude','longitude','ordering'
         ]
