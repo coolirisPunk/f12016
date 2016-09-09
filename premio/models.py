@@ -226,3 +226,40 @@ class Formula1Taste(TimeStampModel):
 
     def __unicode__(self):
         return smart_text(self.name)
+
+
+class Zone(models.Model):
+    title = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return smart_text(self.title)
+
+class Grandstand(models.Model):    
+    title = models.CharField(max_length=100)
+    zone = models.ForeignKey(Zone, related_name='grandstands')
+
+    def __unicode__(self):
+        return smart_text(self.title)
+
+
+class Section(models.Model):
+    title = models.CharField(max_length=100)
+    grandstand = models.ForeignKey(Grandstand, related_name='sections')
+
+    def __unicode__(self):
+        return smart_text(self.title)
+
+class Row(models.Model):
+    title = models.CharField(max_length=100)
+    section = models.ForeignKey(Section, related_name='rows')
+
+    def __unicode__(self):
+        return smart_text(self.title)
+
+
+class Seat(models.Model):
+    title = models.CharField(max_length=100)
+    row = models.ForeignKey(Row, related_name='seats')
+
+    def __unicode__(self):
+        return smart_text(self.title)
