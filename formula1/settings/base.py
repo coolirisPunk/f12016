@@ -64,7 +64,8 @@ INSTALLED_APPS = [
     'socialhub',
     'store',
     'beyond_track',
-    'rest_framework_tracking'
+    'rest_framework_tracking',
+    'import_export'
 
 ]
 
