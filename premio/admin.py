@@ -34,7 +34,7 @@ admin.site.register(Formula1Taste)
 
 admin.site.register(Zone)
 admin.site.register(Grandstand)
-admin.site.register(Row)
+#admin.site.register(Row)
 admin.site.register(Seat)
 
 
@@ -43,3 +43,9 @@ class SectionAdmin(ImportExportModelAdmin):
 
 
 admin.site.register(Section, SectionAdmin)
+
+class RowAdmin(ImportExportModelAdmin):
+	pass
+
+
+admin.site.register(Row, RowAdmin)
