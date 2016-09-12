@@ -59,7 +59,7 @@ admin.site.register(Row, RowAdmin)
 
 
 class SeatAdmin(ImportExportModelAdmin):
-	pass
+    pass
 
 
 
