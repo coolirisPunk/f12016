@@ -10,6 +10,13 @@ class SectionResource(resources.ModelResource):
         model = Section
         import_id_fields = ['id']
 
+class RowResource(resources.ModelResource):
+
+    class Meta:
+        model = Row
+        fields = ('id', 'title', 'section_title')
+        export_order = ('section','title')
+
 admin.site.register(EventDay)
 admin.site.register(EventType)
 admin.site.register(Event)
