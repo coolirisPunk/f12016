@@ -15,7 +15,7 @@ class RowResource(resources.ModelResource):
     class Meta:
         model = Row
         fields = ('id', 'title', 'section__title', 'section')
-        export_order = ('-section', '-title')
+        export_order = ('section', 'title')
 
 admin.site.register(EventDay)
 admin.site.register(EventType)
