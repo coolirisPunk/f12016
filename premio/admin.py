@@ -45,7 +45,11 @@ class SectionAdmin(ImportExportModelAdmin):
 admin.site.register(Section, SectionAdmin)
 
 class RowAdmin(ImportExportModelAdmin):
-	list_display = ['title','section','section__grandstand']
+	list_display = ['title','section', 'get_grandstand']
+
+	def get_grandstand(self, obj):
+		return obj.section.grandstand
+
 
 
 
