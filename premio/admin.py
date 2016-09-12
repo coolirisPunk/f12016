@@ -51,12 +51,6 @@ class RowAdmin(ImportExportModelAdmin):
     	return obj.section.grandstand
 
 
-
-
-admin.site.register(Row, RowAdmin)
-
-
-
 class SeatAdmin(ImportExportModelAdmin):
     pass
 
