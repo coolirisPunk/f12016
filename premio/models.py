@@ -253,8 +253,13 @@ class Row(models.Model):
     title = models.CharField(max_length=100)
     section = models.ForeignKey(Section, related_name='rows')
 
+    class Meta:
+        ordering = ['-title']
+        
     def __unicode__(self):
         return smart_text(self.title)
+
+
 
 
 class Seat(models.Model):
