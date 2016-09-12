@@ -55,3 +55,14 @@ class RowAdmin(ImportExportModelAdmin):
 
 
 admin.site.register(Row, RowAdmin)
+
+
+
+class SeatAdmin(ImportExportModelAdmin):
+	pass
+
+
+
+
+admin.site.register(Row, RowAdmin)
+admin.site.register(Seat, SeatAdmin)
