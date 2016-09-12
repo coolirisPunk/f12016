@@ -45,7 +45,7 @@ class SectionAdmin(ImportExportModelAdmin):
 admin.site.register(Section, SectionAdmin)
 
 class RowAdmin(ImportExportModelAdmin):
-	fields = ['title','section','section__grandstand']
+	list_display = ['title','section','section__grandstand']
 
 
 
