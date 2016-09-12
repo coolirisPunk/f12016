@@ -246,6 +246,9 @@ class Section(models.Model):
     title = models.CharField(max_length=100)
     grandstand = models.ForeignKey(Grandstand, related_name='sections')
 
+    class Meta:
+        ordering = ['-pk']
+
     def __unicode__(self):
         return smart_text(self.title)
 
@@ -254,8 +257,8 @@ class Row(models.Model):
     section = models.ForeignKey(Section, related_name='rows')
 
     class Meta:
-        ordering = ['-title']
-        
+        ordering = ['-pk']
+
     def __unicode__(self):
         return smart_text(self.title)
 
