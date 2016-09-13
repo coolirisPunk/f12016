@@ -147,3 +147,12 @@ class ZoneSerializer(DynamicFieldsModelSerializer):
         fields = [
             'id', 'title'
         ]
+
+class GrandstandSerializer(DynamicFieldsModelSerializer):
+
+    class Meta:
+        model = Grandstand
+        fields = [
+            'id', 'title'
+        ]
+        

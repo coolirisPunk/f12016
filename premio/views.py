@@ -308,3 +308,21 @@ class ZoneList(ListAPIView):
         the user as determined by the username portion of the URL.
         """
         return Zone.objects.all().order_by('title')
+
+
+
+class GrandstandList(ListAPIView):
+    serializer_class = GrandstandSerializer
+    permission_classes = []
+
+    def get_queryset(self):
+        """
+        This view should return a list of all the purchases for
+        the user as determined by the username portion of the URL.
+        """
+
+        if self.request.method == "GET":
+            if 'zone' in self.kwargs:
+                return Grandstand.objects.filter(zone=self.kwargs['zone']).order_by('title')
+
+        return []
