@@ -174,3 +174,12 @@ class RowSerializer(DynamicFieldsModelSerializer):
         fields = [
             'id', 'title'
         ]
+
+
+class SeatSerializer(DynamicFieldsModelSerializer):
+
+    class Meta:
+        model = Seat
+        fields = [
+            'id', 'title'
+        ]
