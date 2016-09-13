@@ -294,3 +294,17 @@ class SaborDelChefViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewsets.Mode
     permission_classes = []
     model = Formula1Taste
     default_fields = ['id', 'name', 'chef', 'website','picture','latitude','longitude','ordering']
+
+
+
+
+
+class ZoneList(ListAPIView):
+    serializer_class = ZoneSerializer
+    permission_classes = []
+    def get_queryset(self):
+        """
+        This view should return a list of all the purchases for
+        the user as determined by the username portion of the URL.
+        """
+        return Zone.objects.all().order_by('title')

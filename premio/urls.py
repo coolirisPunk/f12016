@@ -26,4 +26,6 @@ urlpatterns = [
     url(r'^news/category_news/(?P<pk_category>[0-9]+)/news/$', NewList.as_view()),
     url(r'^news/category_news/(?P<pk_category>[0-9]+)/news/(?P<pk_new>[0-9]+)/$', NewItemView.as_view()),
     url(r'^news/related_news/(?P<pk_category>[0-9]+)/news/(?P<pk_new>[0-9]+)/$', RelatedNewList.as_view()),
+
+    url(r'^zonas/$', CategoryNewList.as_view()),
 ]

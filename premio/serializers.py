@@ -139,3 +139,11 @@ class Formula1TasteSerializer(DynamicFieldsModelSerializer):
         fields = [
             'id', 'name',  'chef','website', 'picture','latitude','longitude','ordering'
         ]
+
+class ZoneSerializer(DynamicFieldsModelSerializer):
+
+    class Meta:
+        model = Zone
+        fields = [
+            'id', 'title'
+        ]
