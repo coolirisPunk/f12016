@@ -360,3 +360,20 @@ class RowList(ListAPIView):
                 return Row.objects.filter(section=self.kwargs['section']).order_by('title')
 
         return []
+
+
+class SeatList(ListAPIView):
+    serializer_class = SeatSerializer
+    permission_classes = []
+
+    def get_queryset(self):
+        """
+        This view should return a list of all the purchases for
+        the user as determined by the username portion of the URL.
+        """
+
+        if self.request.method == "GET":
+            if 'row' in self.kwargs:
+                return Seat.objects.filter(row=self.kwargs['row']).order_by('title')
+
+        return []
