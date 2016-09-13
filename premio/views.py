@@ -356,7 +356,7 @@ class RowList(ListAPIView):
         """
 
         if self.request.method == "GET":
-            if 'grandstand' in self.kwargs:
+            if 'section' in self.kwargs:
                 return Row.objects.filter(section=self.kwargs['section']).order_by('title')
 
-        return []        
+        return []
