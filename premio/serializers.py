@@ -155,4 +155,13 @@ class GrandstandSerializer(DynamicFieldsModelSerializer):
         fields = [
             'id', 'title'
         ]
-        
+
+
+
+class SectionSerializer(DynamicFieldsModelSerializer):
+
+    class Meta:
+        model = Section
+        fields = [
+            'id', 'title'
+        ]

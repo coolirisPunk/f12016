@@ -29,5 +29,6 @@ urlpatterns = [
 
     url(r'^zones/$', ZoneList.as_view()),
     url(r'^grandstands/(?P<zone>[0-9]+)/$', GrandstandList.as_view()),
+    url(r'^sections/(?P<grandstand>[0-9]+)/$', SectionList.as_view()),
 
 ]
