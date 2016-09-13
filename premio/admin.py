@@ -51,13 +51,12 @@ class SectionAdmin(ImportExportModelAdmin):
 admin.site.register(Section, SectionAdmin)
 
 class RowAdmin(ImportExportModelAdmin):
-    pass
-    # resource_class = RowResource
-    # list_display = ['title', 'section', 'get_grandstand']
-    # list_filter = ['section', 'section__grandstand']
+    #resource_class = RowResource
+    list_display = ['title', 'section', 'get_grandstand']
+    list_filter = ['section', 'section__grandstand']
     
-    # def get_grandstand(self, obj):
-    # 	return obj.section.grandstand
+    def get_grandstand(self, obj):
+    	return obj.section.grandstand
 
 
 class SeatAdmin(ImportExportModelAdmin):
