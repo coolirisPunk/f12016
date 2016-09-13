@@ -165,3 +165,12 @@ class SectionSerializer(DynamicFieldsModelSerializer):
         fields = [
             'id', 'title'
         ]
+
+
+class RowSerializer(DynamicFieldsModelSerializer):
+
+    class Meta:
+        model = Row
+        fields = [
+            'id', 'title'
+        ]

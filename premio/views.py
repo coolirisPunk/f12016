@@ -343,3 +343,20 @@ class SectionList(ListAPIView):
                 return Section.objects.filter(grandstand=self.kwargs['grandstand']).order_by('title')
 
         return []
+
+
+class RowList(ListAPIView):
+    serializer_class = RowSerializer
+    permission_classes = []
+
+    def get_queryset(self):
+        """
+        This view should return a list of all the purchases for
+        the user as determined by the username portion of the URL.
+        """
+
+        if self.request.method == "GET":
+            if 'grandstand' in self.kwargs:
+                return Row.objects.filter(section=self.kwargs['section']).order_by('title')
+
+        return []        
