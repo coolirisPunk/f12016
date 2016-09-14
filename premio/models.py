@@ -230,6 +230,7 @@ class Formula1Taste(TimeStampModel):
 
 class Zone(models.Model):
     title = models.CharField(max_length=100)
+    ordering = models.IntegerField(default=0)
 
     def __unicode__(self):
         return smart_text(self.title)
@@ -237,6 +238,7 @@ class Zone(models.Model):
 class Grandstand(models.Model):    
     title = models.CharField(max_length=100)
     zone = models.ForeignKey(Zone, related_name='grandstands')
+    ordering = models.IntegerField(default=0)
 
     def __unicode__(self):
         return smart_text(self.title)
@@ -245,6 +247,7 @@ class Grandstand(models.Model):
 class Section(models.Model):
     title = models.CharField(max_length=100)
     grandstand = models.ForeignKey(Grandstand, related_name='sections')
+    ordering = models.IntegerField(default=0)
 
     class Meta:
         ordering = ['pk']
