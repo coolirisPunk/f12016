@@ -266,7 +266,7 @@ class Row(models.Model):
 
 
 class Seat(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.IntegerField()
     row = models.ForeignKey(Row, related_name='seats')
 
     def __unicode__(self):
