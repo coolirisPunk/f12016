@@ -65,9 +65,9 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         user = self.request.user
 
-        vip_party_racers = ["1 (Main Grandstand)", "2 (Main Grandstand)"]
-        speed_lovers = ["2-A", "3", "4", "5", "6", "6-A"]
-        true_racers = ["7", "8", "9", "10", "11"]
+        vip_party_racers = ["1", "2"]
+        speed_lovers = ["3", "4", "5", "6", "7", "8"]
+        true_racers = ["9", "10", "11", "12", "13"]
         euphoric_fans = ["14", "15"]
 
         if request.data["grada"] in vip_party_racers:

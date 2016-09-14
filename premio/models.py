@@ -255,6 +255,7 @@ class Section(models.Model):
     def __unicode__(self):
         return smart_text(self.title)
 
+
 class Row(models.Model):
     title = models.IntegerField()
     section = models.ForeignKey(Section, related_name='rows')
@@ -264,8 +265,6 @@ class Row(models.Model):
 
     def __unicode__(self):
         return smart_text(self.title)
-
-
 
 
 class Seat(models.Model):
