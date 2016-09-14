@@ -253,7 +253,7 @@ class Section(models.Model):
         return smart_text(self.title)
 
 class Row(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.IntegerField()
     section = models.ForeignKey(Section, related_name='rows')
 
     class Meta:
