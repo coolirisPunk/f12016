@@ -235,7 +235,7 @@ class Zone(models.Model):
         return smart_text(self.title)
 
 class Grandstand(models.Model):    
-    title = models.IntegerField()
+    title = models.CharField(max_length=100)
     zone = models.ForeignKey(Zone, related_name='grandstands')
 
     def __unicode__(self):
