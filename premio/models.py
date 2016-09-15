@@ -3,6 +3,10 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.utils.encoding import smart_text
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 
 class TimeStampModel(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
