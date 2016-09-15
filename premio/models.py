@@ -160,7 +160,7 @@ class PhotoDriver(models.Model):
 
 
 class Position(models.Model):
-    number = models.IntegerField(null=True,null=True, blank=True)
+    number = models.IntegerField(null=True, blank=True)
     time = models.CharField(max_length=50,null=True, blank=True)
     gap = models.CharField(max_length=50,null=True, blank=True)
     laps = models.CharField(max_length=50,null=True, blank=True)
