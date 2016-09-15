@@ -28,6 +28,7 @@ admin.site.register(New)
 
 class PocitionInlines(NestedStackedInline):
     model = Position
+    extra = 10
 
 class PhaseInlines(NestedStackedInline):
     model = Phase
