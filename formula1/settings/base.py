@@ -65,7 +65,8 @@ INSTALLED_APPS = [
     'store',
     'beyond_track',
     'rest_framework_tracking',
-    'import_export'
+    'import_export',
+    'nested_inline'
 
 ]
 

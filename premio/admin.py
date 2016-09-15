@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import *
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
+from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 
 
 class SectionResource(resources.ModelResource):
@@ -23,7 +24,22 @@ admin.site.register(Event)
 
 admin.site.register(CategoryNew)
 admin.site.register(New)
-admin.site.register(Race)
+
+
+class PocitionInlines(NestedStackedInline):
+    model = Position
+    extra = 3
+
+class PhaseInlines(NestedStackedInline):
+    model = Phase
+    inlines = [PocitionInlines]
+
+
+class RaceAdmin(NestedModelAdmin):
+
+    inlines = [PhaseInlines]
+
+admin.site.register(Race, RaceAdmin)
 
 
 
@@ -67,3 +83,4 @@ class SeatAdmin(ImportExportModelAdmin):
 
 admin.site.register(Row, RowAdmin)
 admin.site.register(Seat, SeatAdmin)
+
