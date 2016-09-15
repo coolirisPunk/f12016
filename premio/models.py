@@ -111,7 +111,7 @@ class Phase(models.Model):
     name = models.CharField(
         max_length=2,
         choices=PHASES,
-        default=P1)
+        default=P1,null=True,blank=True)
     race = models.ForeignKey(Race,null=True,blank=True)
     phase_type = models.ForeignKey(PhaseType,null=True,blank=True)
 
