@@ -160,7 +160,7 @@ class PhotoDriver(models.Model):
 
 
 class Position(models.Model):
-    number = models.IntegerField()
+    number = models.IntegerField(null=True, blank=True)
     time = models.CharField(max_length=50, blank=True)
     gap = models.CharField(max_length=50, blank=True)
     laps = models.CharField(max_length=50, blank=True)
@@ -168,8 +168,8 @@ class Position(models.Model):
     q2 = models.CharField(max_length=50, blank=True)
     q3 = models.CharField(max_length=50, blank=True)
     points = models.CharField(max_length=50, blank=True, default=0)
-    phase = models.ForeignKey(Phase)
-    driver = models.ForeignKey(Driver)
+    phase = models.ForeignKey(Phase,null=True,blank=True)
+    driver = models.ForeignKey(Driver,null=True,blank=True)
 
     def __unicode__(self):
         return str(self.number)
