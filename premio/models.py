@@ -112,8 +112,8 @@ class Phase(models.Model):
         max_length=2,
         choices=PHASES,
         null=True,blank=True)
-    race = models.ForeignKey(Race,null=True,blank=True)
-    phase_type = models.ForeignKey(PhaseType,null=True,blank=True)
+    race = models.ForeignKey(Race)
+    phase_type = models.ForeignKey(PhaseType)
 
     def __unicode__(self):
         return str(self.name)
