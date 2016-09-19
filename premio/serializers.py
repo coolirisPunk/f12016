@@ -73,7 +73,7 @@ class PremioListSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Race
         fields = [
-            'id','name','picture'
+            'id','name','picture','flag'
         ]
 
     def get_picture_url(self, obj):
