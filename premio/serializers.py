@@ -80,7 +80,7 @@ class PremioListSerializer(DynamicFieldsModelSerializer):
         return '%s%s%s' % (domain_url, settings.MEDIA_URL, obj.picture)
 
 
-    def get_picture_url(self, obj):
+    def get_flag_url(self, obj):
         return '%s%s%s' % (domain_url, settings.MEDIA_URL, obj.flag)
 
 
