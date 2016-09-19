@@ -69,7 +69,7 @@ class NewItemSerializer(DynamicFieldsModelSerializer):
 
 class PremioListSerializer(DynamicFieldsModelSerializer):
     picture = serializers.SerializerMethodField('get_picture_url')
-
+    flag = serializers.SerializerMethodField('get_flag_url')
     class Meta:
         model = Race
         fields = [
@@ -78,6 +78,10 @@ class PremioListSerializer(DynamicFieldsModelSerializer):
 
     def get_picture_url(self, obj):
         return '%s%s%s' % (domain_url, settings.MEDIA_URL, obj.picture)
+
+
+    def get_picture_url(self, obj):
+        return '%s%s%s' % (domain_url, settings.MEDIA_URL, obj.flag)
 
 
 
