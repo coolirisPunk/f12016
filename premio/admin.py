@@ -18,9 +18,7 @@ class RowResource(resources.ModelResource):
         fields = ('id', 'title', 'section__title', 'section')
         export_order = ('section', 'title')
 
-admin.site.register(EventDay)
-admin.site.register(EventType)
-admin.site.register(Event)
+
 
 admin.site.register(CategoryNew)
 admin.site.register(New)
@@ -79,7 +77,21 @@ class SeatAdmin(ImportExportModelAdmin):
     pass
 
 
+class EventoInlines(NestedStackedInline):
+    model = Event
 
+class EtapaDiaCarreraInlines(NestedStackedInline):
+    model = EventType
+    inlines = [EventoInlines]
+
+
+class HorarioAdmin(NestedModelAdmin):
+    
+    inlines = [EtapaDiaCarreraInlines]
+
+admin.site.register(EventDay, HorarioAdmin)
+admin.site.register(EventType)
+admin.site.register(Event)
 
 admin.site.register(Row, RowAdmin)
 admin.site.register(Seat, SeatAdmin)
