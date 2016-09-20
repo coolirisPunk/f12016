@@ -27,7 +27,7 @@ class EventDayViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelVie
     Event Day endpoints
     """
     serializer_class = EventDaySerializer
-    queryset = EventDay.objects.all()
+    queryset = EventDay.objects.all().order_by('date')
     permission_classes = [IsAuthenticated, DjangoModelPermissions]
     model = EventDay
     default_fields = ['id', 'description', 'date', 'tipoeventos']
