@@ -237,7 +237,7 @@ class PilotoViewSet(viewsets.ModelViewSet):
         for p in d_photos:
             photos.append({"id":p.pk,"name":p.name,"picture":domain_url + settings.MEDIA_URL + str(p.picture),"thumbnail":domain_url + settings.MEDIA_URL + str(p.thumbnail)})
         driver = {"id": d.pk, "name": d.name, "number":d.number,"nationality":d.nationality, "birthday":d.birthday,
-                  "place_of_birth":d.place_of_birth,"championships":d.championships,"photos": photos}
+                  "place_of_birth":d.place_of_birth,"championships":d.championships,"team":d.team.name,"photos": photos}
 
         return Response(driver)
 
