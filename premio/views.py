@@ -293,7 +293,7 @@ class SaborDelChefViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewsets.Mode
     queryset = Formula1Taste.objects.all()
     permission_classes = []
     model = Formula1Taste
-    default_fields = ['id', 'name', 'chef', 'website','picture','latitude','longitude','ordering']
+    default_fields = ['id', 'name', 'chef', 'website', 'picture','location','ordering']
 
 
 
