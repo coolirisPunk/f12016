@@ -57,7 +57,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     model = UserProfile
 
 
-    def get_speed_lover(grada):
+    def get_speed_lover(self, grada):
         vip_party_racers = ["1", "2"]
         speed_lovers = ["3", "4", "5", "6", "7", "8"]
         true_racers = ["9", "10", "11", "12", "13"]
