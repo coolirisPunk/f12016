@@ -45,12 +45,20 @@ class CategoryNewSerializer(DynamicFieldsModelSerializer):
 
 
 class NewListSerializer(DynamicFieldsModelSerializer):
+    width = serializers.SerializerMethodField('get_picture_width')
+    height = serializers.SerializerMethodField('get_thumbnail_height')
 
     class Meta:
         model = New
         fields = [
-            'id',"title","description","date","thumbnail","picture","post_url","category_new"
+            'id',"title","description","date","thumbnail","picture","post_url","category_new","width","height"
         ]
+    def get_picture_width(self, obj):
+        return '%s%s%s' % (domain_url, settings.MEDIA_URL, obj.thumbnail.width)
+
+    def get_thumbnail_height(self, obj):
+        return '%s%s%s' % (domain_url, settings.MEDIA_URL, obj.thumbnail.height)
+
 
 class NewItemSerializer(DynamicFieldsModelSerializer):
     thumbnail = serializers.SerializerMethodField('get_thumbnail_url')
