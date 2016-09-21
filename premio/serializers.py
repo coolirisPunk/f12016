@@ -49,7 +49,7 @@ class NewListSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = New
         fields = [
-            'id',"title","description","date","thumbnail","picture","post_url"
+            'id',"title","description","date","thumbnail","picture","post_url","category_new"
         ]
 
 class NewItemSerializer(DynamicFieldsModelSerializer):
@@ -58,7 +58,7 @@ class NewItemSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = New
         fields = [
-            'id',"title","description","date","thumbnail","picture","post_url"
+            'id',"title","description","date","thumbnail","picture","post_url","category_new"
         ]
     def get_thumbnail_url(self, obj):
         return '%s%s%s' % (domain_url, settings.MEDIA_URL, obj.thumbnail)
