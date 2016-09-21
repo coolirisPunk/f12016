@@ -81,7 +81,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         user = self.request.user
 
-        request.data['speed_lover'] = get_speed_lover(request.data['grada'])
+        request.data['speed_lover'] = self.get_speed_lover(request.data['grada'])
         #if 'speed_lover' not in request.data:
         #    request.data["speed_lover"] = "speed_lovers"
         if user is not None:
@@ -114,7 +114,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
             request.data["first_name"] = "first_name"
             request.data["last_name"] = "last_name"
 
-        request.data['speed_lover'] = get_speed_lover(request.data['grada'])
+        request.data['speed_lover'] = self.get_speed_lover(request.data['grada'])
 
         instance = self.get_object()
         serializer = self.get_serializer(instance, data=request.data)
