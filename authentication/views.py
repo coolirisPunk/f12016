@@ -57,6 +57,22 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     model = UserProfile
 
 
+    def get_speed_lover(grada):
+        vip_party_racers = ["1", "2"]
+        speed_lovers = ["3", "4", "5", "6", "7", "8"]
+        true_racers = ["9", "10", "11", "12", "13"]
+        euphoric_fans = ["14", "15"]
+        speed_lover = 'speed_lovers'
+        if grada in vip_party_racers:
+            speed_lover = "vip_party_racers"
+        elif grada in speed_lovers:
+            speed_lover = "speed_lovers"
+        elif grada in true_racers:
+            speed_lover = "true_racers"
+        elif grada in euphoric_fans:
+            speed_lover = "euphoric_fans"
+        return speed_lover     
+
     def get_queryset(self):
         user = self.request.user
         queryset = UserProfile.objects.filter(user=user)
@@ -65,21 +81,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         user = self.request.user
 
-        vip_party_racers = ["1", "2"]
-        speed_lovers = ["3", "4", "5", "6", "7", "8"]
-        true_racers = ["9", "10", "11", "12", "13"]
-        euphoric_fans = ["14", "15"]
-
-        if request.data["grada"] in vip_party_racers:
-            request.data["speed_lover"] = "vip_party_racers"
-        elif request.data["grada"] in speed_lovers:
-            request.data["speed_lover"] = "speed_lovers"
-        elif request.data["grada"] in true_racers:
-            request.data["speed_lover"] = "true_racers"
-        elif request.data["grada"] in euphoric_fans:
-            request.data["speed_lover"] = "euphoric_fans"
-
-
+        request.data['speed_lover'] = get_speed_lover(request.data['grada'])
         #if 'speed_lover' not in request.data:
         #    request.data["speed_lover"] = "speed_lovers"
         if user is not None:
@@ -111,6 +113,9 @@ class UserProfileViewSet(viewsets.ModelViewSet):
             request.data["username"] = user.username
             request.data["first_name"] = "first_name"
             request.data["last_name"] = "last_name"
+
+        request.data['speed_lover'] = get_speed_lover(request.data['grada'])
+
         instance = self.get_object()
         serializer = self.get_serializer(instance, data=request.data)
         serializer.is_valid(raise_exception=True)
