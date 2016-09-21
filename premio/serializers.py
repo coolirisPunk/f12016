@@ -57,13 +57,13 @@ class NewListSerializer(DynamicFieldsModelSerializer):
         ]
 
     def get_picture_width(self, obj):
-        return '%s%s%s' % (obj.picture.width)
+        return '%s' % (obj.picture.width)
 
     def get_picture_height(self, obj):
         return '%s' % (obj.picture.height)
 
     def get_thumbnail_width(self, obj):
-        return '%s%s%s' % (obj.thumbnail.width)
+        return '%s' % (obj.thumbnail.width)
 
     def get_thumbnail_height(self, obj):
         return '%s' % (obj.thumbnail.height)
