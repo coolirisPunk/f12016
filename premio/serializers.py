@@ -52,7 +52,8 @@ class NewListSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = New
         fields = [
-            'id',"title","description","date","thumbnail","picture","post_url","category_new"
+            'id',"title","description","date","thumbnail","picture","post_url","category_new",
+            "width_thumbnail","height_thumbnail","width_picture", "height_picture"
         ]
 
     def get_picture_width(self, obj):
