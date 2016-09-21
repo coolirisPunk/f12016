@@ -72,7 +72,7 @@ class New(BaseNew):
     category_new = models.ForeignKey(CategoryNew, related_name='news')
     post_url = models.CharField(max_length=200, null=True, blank=True)
     def __unicode__(self):
-        return str(self.short_title)
+        return str(self.title)
 
 
 class Race(TimeStampModel):
