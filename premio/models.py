@@ -68,7 +68,7 @@ class New(BaseNew):
     #short_title = models.CharField(max_length=100,null=True,blank=True)
     #short_description = models.TextField(null=True, blank=True)
     thumbnail = models.ImageField(upload_to='news')
-    picture = models.ImageField(upload_to='news')
+    picture = models.ImageField(upload_to='news',help_text='750 × 523')
     category_new = models.ForeignKey(CategoryNew, related_name='news')
     post_url = models.CharField(max_length=200, null=True, blank=True)
     def __unicode__(self):
