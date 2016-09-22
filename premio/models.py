@@ -133,7 +133,7 @@ class Team(models.Model):
 class Driver(models.Model):
     name = models.CharField(max_length=100)
     short_name = models.CharField(max_length=100)
-    picture = models.ImageField(upload_to='drivers', help_text='')
+    picture = models.ImageField(upload_to='drivers', help_text='',null=True,blank=True)
     number = models.IntegerField()
     nationality = models.CharField(max_length=100)
     birthday = models.DateField()
@@ -141,7 +141,12 @@ class Driver(models.Model):
     championships = models.CharField(max_length=100, default="Ninguno")
     team = models.ForeignKey(Team)
     ordering = models.IntegerField(default=0)
-
+    status_options = (
+        ('enable', 'Habilitado',),
+        ('disable', 'Deshabilitado',),
+    )
+    status = models.CharField(choices=status_options, max_length=20,default=status_options[0][0])
+    
     def __unicode__(self):
         return smart_text(self.name)
 
