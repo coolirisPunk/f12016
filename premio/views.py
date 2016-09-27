@@ -220,7 +220,7 @@ class PilotoViewSet(viewsets.ModelViewSet):
         return instance
 
     def list(self, request, client_pk=None):
-        queryset = Driver.objects.all().order_by('name')
+        queryset = Driver.objects.filter(status='enable').order_by('name')
         serializer = PilotoListSerializer(queryset, many=True)
         return Response({"count": len(serializer.data),
              "next": None,
