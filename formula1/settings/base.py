@@ -67,7 +67,6 @@ INSTALLED_APPS = [
     'rest_framework_tracking',
     'import_export',
     'nested_inline',
-    'corsheaders'
 
 ]
 
