@@ -3,6 +3,8 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.utils.encoding import smart_text
+from autoslug import AutoSlugField
+
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -42,6 +44,8 @@ class Event(TimeStampModel):
     #event_day = models.ForeignKey(EventDay)
     event_type = models.ForeignKey(EventType, related_name='events')
     ordering = models.IntegerField(default=0)
+    slug = AutoSlugField(unique=True, populate_from='description', null=True, max_length=160)
+
 
     def __unicode__(self):
         return str(self.description)
