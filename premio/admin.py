@@ -90,7 +90,7 @@ class HorarioAdmin(NestedModelAdmin):
     inlines = [EtapaDiaCarreraInlines]
 
 @admin.register(Event)
-class EventAdmin(adminModelAdmin):
+class EventAdmin(admin.ModelAdmin):
     readonly_fields = ['slug']
     
 
