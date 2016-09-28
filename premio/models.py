@@ -44,7 +44,7 @@ class Event(TimeStampModel):
     #event_day = models.ForeignKey(EventDay)
     event_type = models.ForeignKey(EventType, related_name='events')
     ordering = models.IntegerField(default=0)
-    #slug = AutoSlugField(unique=True, populate_from='description', null=True, max_length=160)
+    slug = AutoSlugField(unique=True, populate_from='description', null=True, max_length=160)
 
 
     def __unicode__(self):
