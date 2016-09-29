@@ -51,7 +51,7 @@ class Event(TimeStampModel):
     event_type = models.ForeignKey(EventType, related_name='events')
     ordering = models.IntegerField(default=0)
     slug = AutoSlugField(unique=True, populate_from='description', null=True, max_length=160)
-    slug_notification = AutoSlugField(unique_with=('description', 'event_type__event_day__description','start_time'), null=True, max_length=160)
+    slug_notification = AutoSlugField(unique_with=('description','start_time'), null=True, max_length=160)
     class Meta:
         ordering = ['ordering']
 
