@@ -37,6 +37,8 @@ class EventType(models.Model):
     def __unicode__(self):
         return str(self.description)
 
+    def get_queryset(self):
+        queryset = EventType.objects.all().order_by('ordering')
 
 class Event(TimeStampModel):
     description = models.CharField(max_length=100)

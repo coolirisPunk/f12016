@@ -23,7 +23,7 @@ class EventTypeSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = EventType
         fields = [
-            'id', 'description', 'ordering',"events"
+            'id', 'description', 'ordering', "events"
         ]
         depth = 1
 
