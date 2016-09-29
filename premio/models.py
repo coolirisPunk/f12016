@@ -323,4 +323,4 @@ def send_notification_premio(sender, instance, created, **kwargs):
 
 
 
-post_save.connect(send_notification_premio, sender=Race)
+#post_save.connect(send_notification_premio, sender=Race)
