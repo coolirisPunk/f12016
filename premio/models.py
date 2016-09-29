@@ -302,7 +302,7 @@ def send_notification_noticias(sender, instance, created, **kwargs):
         "type": "noticia",
         "noticia": str(instance.pk)
     }
-    push_service.notify_topic_subscribers(message_title=title,topic_name="news", message_body=message,message_body=message,time_to_live=0)    
+    push_service.notify_topic_subscribers(message_title=title,topic_name="news",data_message=data_message, message_body=message,time_to_live=0)    
 
 post_save.connect(send_notification_noticias, sender=New)
 
