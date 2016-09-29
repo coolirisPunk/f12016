@@ -51,15 +51,15 @@ class Event(TimeStampModel):
     event_type = models.ForeignKey(EventType, related_name='events')
     ordering = models.IntegerField(default=0)
     slug = AutoSlugField(unique=True, populate_from='description', null=True, max_length=160)
-    slug_notification = AutoSlugField(populate_from=lambda instance: instance.description + instance.start_time, unique_with=('description', 'event_type__event_day__description','start_time'), null=True, max_length=160)
+    slug_notification = AutoSlugField(populate_from=get_slug_notification, unique_with=('description', 'event_type__event_day__description','start_time'), null=True, max_length=160)
     class Meta:
         ordering = ['ordering']
 
     def __unicode__(self):
         return str(self.description)
 
-    def get_slug_notification(self):
-        return smart_text(self.description + self.start_time)
+def get_slug_notification(self):
+    return smart_text(self.description + self.start_time)
 
 
 
