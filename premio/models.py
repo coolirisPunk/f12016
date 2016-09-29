@@ -4,11 +4,14 @@ from __future__ import unicode_literals
 from django.db import models
 from django.utils.encoding import smart_text
 from autoslug import AutoSlugField
+from django.db.models.signals import post_save
+from pyfcm import FCMNotification
 
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+api_key = 'AIzaSyAuYvhngNUQRPLL9BH2ptvHu77tcUYjrNs'
 
 class TimeStampModel(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
@@ -285,3 +288,42 @@ class Seat(models.Model):
 
     def __unicode__(self):
         return smart_text(self.title)
+
+
+def send_notification_noticias(sender, instance, created, **kwargs):
+    if created:
+        #message = u' '.join(("Nueva noticia", str(instance.titulo)))
+        message = str(instance.titulo)
+        title = "Nueva noticia"
+    else:
+        #message = u' '.join(("Actualización de noticia", str(instance.titulo)))
+        message = str(instance.titulo)
+        title = "Actualización de noticia"
+    register(
+        get_secret('APPLICATION_ID_PARSE'),
+        get_secret('REST_API_KEY_PARSE'),
+        master_key=get_secret('MASTER_KEY_PARSE')
+    )
+    Push.alert({"alert": message, "title": title, "tipo": "noticia", "noticia": str(instance.pk)},
+               channels=["notificaciones"])
+
+post_save.connect(send_notification_noticias, sender=Noticia)
+
+def send_notification_premio(sender, instance, created, **kwargs):
+    push_service = FCMNotification(api_key=api_key)
+    premio = instance.name
+    if created:
+        message = str(premio)
+        title = "Resultados"
+    else:
+        message = str(premio)
+        title = "Actualización de Resultados"
+    data_message = {
+        "type" : "premio",
+        "premio" : str(instance.pk)
+    }
+    push_service.notify_topic_subscribers(topic_name="results", message_title=title, message_body=message,data_message=data_message)
+
+
+
+post_save.connect(send_notification_premio, sender=Race)
