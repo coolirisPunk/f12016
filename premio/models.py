@@ -291,21 +291,18 @@ class Seat(models.Model):
 
 
 def send_notification_noticias(sender, instance, created, **kwargs):
+    push_service = FCMNotification(api_key=api_key)
     if created:
-        #message = u' '.join(("Nueva noticia", str(instance.titulo)))
-        message = str(instance.titulo)
+        message = str(instance.title)
         title = "Nueva noticia"
     else:
-        #message = u' '.join(("Actualización de noticia", str(instance.titulo)))
-        message = str(instance.titulo)
+        message = str(instance.title)
         title = "Actualización de noticia"
-    register(
-        get_secret('APPLICATION_ID_PARSE'),
-        get_secret('REST_API_KEY_PARSE'),
-        master_key=get_secret('MASTER_KEY_PARSE')
-    )
-    Push.alert({"alert": message, "title": title, "tipo": "noticia", "noticia": str(instance.pk)},
-               channels=["notificaciones"])
+    data_message = {
+        "type": "noticia",
+        "noticia": str(instance.pk)
+    }
+    push_service.notify_topic_subscribers(topic_name="news", message_title=title, message_body=message,data_message=data_message)    
 
 post_save.connect(send_notification_noticias, sender=New)
 
