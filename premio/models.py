@@ -42,7 +42,7 @@ class EventType(models.Model):
 
 
 def get_slug_notification(self):
-    return smart_text(self.description + self.start_time)
+    return smart_text(self.description + self.event_type.event_day.description + self.start_time)
 
 
 class Event(TimeStampModel):
