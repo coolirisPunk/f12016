@@ -126,7 +126,7 @@ class PremioViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewS
     Premios endpoints
     """
     serializer_class = PremioListSerializer
-    queryset = Race.objects.all().order_by('name')
+    queryset = Race.objects.all().order_by('ordering')
     permission_classes = []
     model = Race
 
@@ -135,7 +135,7 @@ class PremioViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewS
         return instance
 
     def list(self, request, client_pk=None):
-        queryset = Race.objects.all().order_by('name')
+        queryset = Race.objects.all().order_by('ordering')
         serializer = PremioListSerializer(queryset, many=True)
         return Response({"count": len(serializer.data),
                      "next": None,
