@@ -210,7 +210,7 @@ class PilotoViewSet(viewsets.ModelViewSet):
     Premios endpoints
     """
     serializer_class = PilotoListSerializer
-    queryset = Driver.objects.filter(status='enable').order_by('name')
+    queryset = Driver.objects.filter(status='enable').order_by('ordering')
     permission_classes = []
     model = Driver
     default_fields = ['id','name','picture']
@@ -220,7 +220,7 @@ class PilotoViewSet(viewsets.ModelViewSet):
         return instance
 
     def list(self, request, client_pk=None):
-        queryset = Driver.objects.filter(status='enable').order_by('name')
+        queryset = Driver.objects.filter(status='enable').order_by('ordering')
         serializer = PilotoListSerializer(queryset, many=True)
         return Response({"count": len(serializer.data),
              "next": None,
