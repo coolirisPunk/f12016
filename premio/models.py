@@ -302,7 +302,7 @@ def send_notification_noticias(sender, instance, created, **kwargs):
         "type": "noticia",
         "noticia": str(instance.pk)
     }
-    push_service.notify_topic_subscribers(topic_name="news", message_title=title, message_body=message,data_message=data_message)    
+    push_service.notify_topic_subscribers(topic_name="news", message_body=message)    
 
 post_save.connect(send_notification_noticias, sender=New)
 
@@ -316,11 +316,11 @@ def send_notification_premio(sender, instance, created, **kwargs):
         message = str(premio)
         title = "Actualización de Resultados"
     data_message = {
-        "type" : "premio",
-        "premio" : str(instance.pk)
+        "type": "premio",
+        "premio": str(instance.pk)
     }
-    push_service.notify_topic_subscribers(topic_name="results", message_title=title, message_body=message,data_message=data_message)
+    push_service.notify_topic_subscribers(topic_name="results", message_body=message)
 
 
 
-#post_save.connect(send_notification_premio, sender=Race)
+post_save.connect(send_notification_premio, sender=Race)
