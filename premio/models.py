@@ -52,6 +52,8 @@ class Event(TimeStampModel):
     ordering = models.IntegerField(default=0)
     slug = AutoSlugField(unique=True, populate_from='description', null=True, max_length=160)
 
+    class Meta:
+        ordering = ['ordering']
 
     def __unicode__(self):
         return str(self.description)
