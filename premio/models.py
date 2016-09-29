@@ -290,24 +290,7 @@ class Seat(models.Model):
         return smart_text(self.title)
 
 
-def send_notification_noticias(sender, instance, created, **kwargs):
-    if created:
-        #message = u' '.join(("Nueva noticia", str(instance.titulo)))
-        message = str(instance.titulo)
-        title = "Nueva noticia"
-    else:
-        #message = u' '.join(("Actualización de noticia", str(instance.titulo)))
-        message = str(instance.titulo)
-        title = "Actualización de noticia"
-    register(
-        get_secret('APPLICATION_ID_PARSE'),
-        get_secret('REST_API_KEY_PARSE'),
-        master_key=get_secret('MASTER_KEY_PARSE')
-    )
-    Push.alert({"alert": message, "title": title, "tipo": "noticia", "noticia": str(instance.pk)},
-               channels=["notificaciones"])
 
-post_save.connect(send_notification_noticias, sender=Noticia)
 
 def send_notification_premio(sender, instance, created, **kwargs):
     push_service = FCMNotification(api_key=api_key)
