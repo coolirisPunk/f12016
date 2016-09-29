@@ -91,7 +91,7 @@ class HorarioAdmin(NestedModelAdmin):
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    readonly_fields = ['slug']
+    readonly_fields = ['slug','slug_notification']
     
 
 admin.site.register(EventDay, HorarioAdmin)
@@ -100,4 +100,5 @@ admin.site.register(EventType)
 
 admin.site.register(Row, RowAdmin)
 admin.site.register(Seat, SeatAdmin)
+
 

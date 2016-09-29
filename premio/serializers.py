@@ -13,7 +13,7 @@ class EventSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Event
         fields = [
-            'id', 'description', 'start_time', 'ordering','slug'
+            'id', 'description', 'start_time', 'ordering','slug','slug_notification'
         ]
         depth = 1
         order_by = (('ordering',))
