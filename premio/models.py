@@ -41,6 +41,10 @@ class EventType(models.Model):
         return str(self.description)
 
 
+def get_slug_notification(self):
+    return smart_text(self.description + self.start_time)
+
+
 class Event(TimeStampModel):
     description = models.CharField(max_length=100)
     start_time = models.CharField(max_length=100)
@@ -57,9 +61,6 @@ class Event(TimeStampModel):
 
     def __unicode__(self):
         return str(self.description)
-
-def get_slug_notification(self):
-    return smart_text(self.description + self.start_time)
 
 
 
