@@ -65,7 +65,7 @@ class SectionAdmin(ImportExportModelAdmin):
 admin.site.register(Section, SectionAdmin)
 
 class RowAdmin(ImportExportModelAdmin):
-    resource_class = RowResource
+    #resource_class = RowResource
     list_display = ['title', 'section', 'get_grandstand']
     list_filter = ['section', 'section__grandstand']
     
