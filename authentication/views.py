@@ -47,7 +47,7 @@ class ProfileViewSet(APIView):
         return Response("post")
 
 
-class UserProfileViewSet(viewsets.ModelViewSet):
+class UserProfileViewSet(CustomFieldsMixin, viewsets.ModelViewSet):
     """
     User endpoints
     """

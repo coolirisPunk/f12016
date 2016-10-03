@@ -22,7 +22,7 @@ def get_domain():
 
 domain_url = Site.objects.get_current().domain
 
-class EventDayViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewSet):
+class EventDayViewSet(CustomFieldsMixin, viewsets.ModelViewSet):
     """
     Event Day endpoints
     """
@@ -30,11 +30,8 @@ class EventDayViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelVie
     queryset = EventDay.objects.all().order_by('date')
     permission_classes = [IsAuthenticated, DjangoModelPermissions]
     model = EventDay
-    default_fields = ['id', 'description', 'date', 'tipoeventos']
+    #default_fields = ['id', 'description', 'date', 'tipoeventos']
 
-    def create(self, validated_data):
-        instance = EventDay.objects.create(**validated_data)
-        return instance
 
 
 class CategoryNewViewSet(LoggingMixin, CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewSet):

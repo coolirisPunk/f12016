@@ -6,6 +6,7 @@ from rest_framework import status
 
 class CustomFieldsMixin:
     def get_serializer(self, instance=None, data=empty, many=False, partial=False):
+        print "mixin"
         if self.request.method == "PUT":
             return self.serializer_class(instance=instance, data=data, many=many, partial=True, fields=None,
                                          context={'request': self.request})
