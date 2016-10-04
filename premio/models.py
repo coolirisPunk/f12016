@@ -300,6 +300,12 @@ class Seat(models.Model):
         return smart_text(self.title)
 
 
+class Benefit(models.Model):
+    button_text = models.CharField(max_length=100)
+    link_url = models.CharField(max_length=100)
+    description = models.TextField()
+
+
 def send_notification_noticias(sender, instance, created, **kwargs):
     push_service = FCMNotification(api_key=api_key)
     if created:

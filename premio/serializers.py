@@ -8,7 +8,7 @@ from django.conf import settings
 from django.contrib.sites.models import Site
 
 domain_url = Site.objects.get_current().domain
- 
+
 class EventSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Event
@@ -17,6 +17,13 @@ class EventSerializer(DynamicFieldsModelSerializer):
         ]
         depth = 1
         order_by = (('ordering',))
+
+class BenefitSerializer(DynamicFieldsModelSerializer):
+    class Meta:
+        model = Benefit
+        fields = [
+            'id', 'button_text', 'link_url', 'description'
+        ]
 
 class EventTypeSerializer(DynamicFieldsModelSerializer):
     events = EventSerializer(many=True, read_only=True)

@@ -9,6 +9,7 @@ router = DefaultRouter()
 router_premios = routers.SimpleRouter()
 
 router.register(r'horarios', EventDayViewSet, base_name='horarios')
+router.register(r'beneficios', BenefitViewSet, base_name='beneficios')
 
 router.register(r'premios', PremioViewSet, base_name='premios')
 router.register(r'pilotos', PilotoViewSet, base_name='pilotos')

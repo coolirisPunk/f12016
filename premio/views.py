@@ -32,6 +32,15 @@ class EventDayViewSet(CustomFieldsMixin, viewsets.ModelViewSet):
     model = EventDay
     #default_fields = ['id', 'description', 'date', 'tipoeventos']
 
+class BenefitViewSet(CustomFieldsMixin, viewsets.ModelViewSet):
+    """
+    Event Day endpoints
+    """
+    serializer_class = BenefitSerializer
+    queryset = Benefit.objects.all()
+    permission_classes = [IsAuthenticated, DjangoModelPermissions]
+    model = Benefit
+
 
 
 class CategoryNewViewSet(LoggingMixin, CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewSet):
