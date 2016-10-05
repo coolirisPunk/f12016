@@ -380,6 +380,6 @@ class SeatList(ListAPIView):
 
         if self.request.method == "GET":
             if 'row' in self.kwargs:
-                return Seat.objects.filter(row=self.kwargs['row']).order_by('title').distinct()
+                return Seat.objects.filter(row=self.kwargs['row']).order_by('title').distinct('title')
 
         return []
