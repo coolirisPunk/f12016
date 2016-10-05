@@ -210,7 +210,7 @@ class SectionSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Section
         fields = [
-            'id', 'title'
+            'id', 'title','latitude','longitude'
         ]
 
 

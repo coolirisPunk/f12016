@@ -273,6 +273,8 @@ class Section(models.Model):
     title = models.CharField(max_length=100)
     grandstand = models.ForeignKey(Grandstand, related_name='sections')
     ordering = models.IntegerField(default=0)
+    latitude = models.CharField(max_length=100,null=True,blank=True)
+    longitude = models.CharField(max_length=100,null=True,blank=True)
 
     class Meta:
         ordering = ['pk']
