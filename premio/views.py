@@ -313,7 +313,7 @@ class ZoneList(ListAPIView):
         This view should return a list of all the purchases for
         the user as determined by the username portion of the URL.
         """
-        return Zone.objects.all().order_by('title')
+        return Zone.objects.all().order_by('ordering')
 
 
 
@@ -329,7 +329,7 @@ class GrandstandList(ListAPIView):
 
         if self.request.method == "GET":
             if 'zone' in self.kwargs:
-                return Grandstand.objects.filter(zone=self.kwargs['zone']).order_by('title')
+                return Grandstand.objects.filter(zone=self.kwargs['zone']).order_by('ordering')
 
         return []
 
@@ -346,7 +346,7 @@ class SectionList(ListAPIView):
 
         if self.request.method == "GET":
             if 'grandstand' in self.kwargs:
-                return Section.objects.filter(grandstand=self.kwargs['grandstand']).order_by('title')
+                return Section.objects.filter(grandstand=self.kwargs['grandstand']).order_by('ordering')
 
         return []
 
