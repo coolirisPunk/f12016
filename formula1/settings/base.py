@@ -3,6 +3,7 @@ from os.path import abspath, dirname, basename, join, normpath
 from sys import path
 from django.core.exceptions import ImproperlyConfigured
 import json
+from django.utils.translation import ugettext_lazy as _
 
 BASE_DIR = dirname(dirname(abspath(__file__)))
 path.append(BASE_DIR)
@@ -140,11 +141,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-mx'
 
 TIME_ZONE = 'America/Mexico_City'
 
 USE_I18N = True
+
+LANGUAGES = (
+    ('es', _('Spanish')),
+)
 
 USE_L10N = True
 
