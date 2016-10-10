@@ -76,6 +76,11 @@
     <script type="text/javascript">
       var error_response = function(data){
         console.log(data);
+        if(data.status == 400){
+          var errors = JSON.parse(data.responseText);
+          console.log(errors);
+
+        }
         $('.api-response').html("API Response: " + data.status + ' ' + data.statusText + '<br/>Content: ' + data.responseText);
       }
       var susccess_response = function(data){
