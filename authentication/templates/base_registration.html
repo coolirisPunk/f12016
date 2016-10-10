@@ -81,15 +81,11 @@
           var errors = [];
           console.log(json_errors);
             if (typeof json_errors.new_password1 != "undefined") {
-              for(var i =0; i< errors.new_password1.length;i++){
-                errors.push(errors.new_password1[i]);  
-              }
+                errors.push(errors.new_password1[0]);  
               
             }
             if (typeof json_errors.new_password2 != "undefined") {
-              for(var i =0; i< errors.new_password2.length;i++){
-                errors.push(errors.new_password2[i]);  
-              }
+                errors.push(errors.new_password2[0]);  
             }
             console.log(errors);
             for (var i = 0; i < errors.length; i++) {
