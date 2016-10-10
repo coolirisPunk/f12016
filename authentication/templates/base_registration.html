@@ -80,6 +80,8 @@
           var json_errors = JSON.parse(data.responseText);
           var errors = [];
           console.log(json_errors);
+          console.log(json_errors["new_password1"][0]);
+          console.log(json_errors["new_password2"][0]);
             if (typeof json_errors.new_password1 != "undefined") {
                 errors.push(errors.new_password1[0]);  
               
