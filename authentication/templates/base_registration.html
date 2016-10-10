@@ -80,13 +80,13 @@
           var json_errors = JSON.parse(data.responseText);
           var errors = [];
           console.log(json_errors);
-            if (typeof errors.new_password1 != "undefined") {
+            if (typeof json_errors.new_password1 != "undefined") {
               for(var i =0; i< errors.new_password1.length;i++){
                 errors.push(errors.new_password1[i]);  
               }
               
             }
-            if (typeof errors.new_password2 != "undefined") {
+            if (typeof json_errors.new_password2 != "undefined") {
               for(var i =0; i< errors.new_password2.length;i++){
                 errors.push(errors.new_password2[i]);  
               }
