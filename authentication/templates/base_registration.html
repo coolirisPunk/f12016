@@ -97,7 +97,7 @@
       }
       var susccess_response = function(data){
         console.log(data);
-        var response_json = JSON.parse(data);
+        $('.api-response').html(data);
         $('.api-response').html(response_json["success"]);
       }
       $().ready(function(){
