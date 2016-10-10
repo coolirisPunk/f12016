@@ -85,8 +85,12 @@
             if (typeof json_errors.new_password1 != "undefined") {
                 $('.error-password-1').html(json_errors["new_password1"][0]); 
             }
+            else{
+              $('.error-password-1').html(""); 
+            }
             if (typeof json_errors.new_password2 != "undefined") {
-              $('.error-password-2').html(json_errors["new_password2"][0]); 
+              $('.error-password-2').html(json_errors["new_password2"][0]);
+              $('.error-password-2').html(""); 
             }
         }
 
