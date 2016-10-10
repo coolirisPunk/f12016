@@ -77,17 +77,20 @@
       var error_response = function(data){
         console.log(data);
         if(data.status == 400){
-          var errors = JSON.parse(data.responseText);
-          console.log(errors);
-            if (typeof errors.new_password2 != "undefined") {
-              alert("GOT THERE");
-            }
+          var json_errors = JSON.parse(data.responseText);
+          var errors = [];
+          console.log(json_errors);
             if (typeof errors.new_password1 != "undefined") {
-              alert("GOT THERE");
-            }            
-
+              errors.push(errors.new_password1[0]);
+            }
+            if (typeof errors.new_password2 != "undefined") {
+              errors.push(errors.new_password2[0]);
+            }
+            for (var i = 0; i < errors.length; i++) {
+                $('.api-response').html("<p class='error-list'>"+errors[i]+"</p>");              
+            }
         }
-        $('.api-response').html("API Response: " + data.status + ' ' + data.statusText + '<br/>Content: ' + data.responseText);
+
       }
       var susccess_response = function(data){
         $('.api-response').html("API Response: OK<br/>Content: " + JSON.stringify(data));
