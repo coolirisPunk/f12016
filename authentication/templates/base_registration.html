@@ -79,6 +79,12 @@
         if(data.status == 400){
           var errors = JSON.parse(data.responseText);
           console.log(errors);
+            if (typeof errors.new_password2 != "undefined") {
+              alert("GOT THERE");
+            }
+            if (typeof errors.new_password1 != "undefined") {
+              alert("GOT THERE");
+            }            
 
         }
         $('.api-response').html("API Response: " + data.status + ' ' + data.statusText + '<br/>Content: ' + data.responseText);
