@@ -86,6 +86,7 @@
             if (typeof errors.new_password2 != "undefined") {
               errors.push(errors.new_password2[0]);
             }
+            console.log(errors);
             for (var i = 0; i < errors.length; i++) {
                 $('.api-response').html("<p class='error-list'>"+errors[i]+"</p>");              
             }
