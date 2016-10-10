@@ -90,13 +90,17 @@
             }
             if (typeof json_errors.new_password2 != "undefined") {
               $('.error-password-2').html(json_errors["new_password2"][0]);
+            }
+            else{
               $('.error-password-2').html(""); 
             }
         }
 
       }
       var susccess_response = function(data){
-        $('.api-response').html("API Response: OK<br/>Content: " + JSON.stringify(data));
+        console.log(data);
+        var response_json = JSON.parse(data);
+        $('.api-response').html(response_json["success"]);
       }
       $().ready(function(){
         $('form.ajax-post button[type=submit]').click(function(){
