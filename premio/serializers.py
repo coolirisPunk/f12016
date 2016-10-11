@@ -192,7 +192,7 @@ class ZoneSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Zone
         fields = [
-            'id', 'title'
+            'id', 'title','ordering'
         ]
 
 class GrandstandSerializer(DynamicFieldsModelSerializer):
@@ -200,7 +200,7 @@ class GrandstandSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Grandstand
         fields = [
-            'id', 'title'
+            'id', 'title','ordering'
         ]
 
 
@@ -210,7 +210,7 @@ class SectionSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Section
         fields = [
-            'id', 'title','latitude','longitude'
+            'id', 'title','latitude','longitude','ordering'
         ]
 
 
