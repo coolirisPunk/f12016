@@ -75,11 +75,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript">
       var error_response = function(data){
-        console.log(data);
+        //console.log(data);
         if(data.status == 400){
           var json_errors = JSON.parse(data.responseText);
           var errors = [];
-          console.log(json_errors);
+          //console.log(json_errors);
             if (typeof json_errors.new_password1 != "undefined") {
                 $('.error-password-1').html(json_errors["new_password1"][0]); 
             }
@@ -96,9 +96,11 @@
 
       }
       var susccess_response = function(data){
-        console.log(data);
-        $('.api-response').html(data);
-        $('.api-response').html(data["success"]);
+        //console.log(data);
+        if (typeof data["success"] != "undefined") {
+          $('.api-response').html(data["success"]);
+        }
+
       }
       $().ready(function(){
         $('form.ajax-post button[type=submit]').click(function(){
