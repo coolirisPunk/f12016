@@ -61,7 +61,7 @@ class CategoryNewList(ListAPIView):
         This view should return a list of all the purchases for
         the user as determined by the username portion of the URL.
         """
-        return CategoryNew.objects.all().order_by('ordering')
+        return CategoryNew.objects.filter(status='enable')
 
 
 class NewList(ListAPIView):
