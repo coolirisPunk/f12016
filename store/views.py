@@ -31,7 +31,7 @@ class SellerViewSet(viewsets.ViewSet):
     serializer_class = SellerSerializer
 
     def list(self, request, category_product_pk=None):
-        queryset = Seller.objects.filter(category_product=category_product_pk)
+        queryset = Seller.objects.filter(category_product=category_product_pk).order_by('ordering')
         serializer = SellerSerializer(queryset, many=True)
         return Response(serializer.data)
 
