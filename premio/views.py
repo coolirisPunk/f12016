@@ -48,7 +48,7 @@ class CategoryNewViewSet(LoggingMixin, CustomFieldsMixin, ActiveDesactiveMixin, 
     Category New endpoints
     """
     serializer_class = CategoryNewSerializer
-    queryset = CategoryNew.objects.all()
+    queryset = CategoryNew.objects.filter(status='enable')
     permission_classes = [IsAuthenticated, DjangoModelPermissions]
     model = EventDay
     default_fields = ['id', 'description']

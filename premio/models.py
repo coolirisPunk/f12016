@@ -69,7 +69,12 @@ class Event(TimeStampModel):
 class CategoryNew(models.Model):
     description = models.CharField(max_length=100)
     ordering = models.IntegerField(default=0)
-
+    status_options = (
+        ('enable', 'Habilitado',),
+        ('disable', 'Deshabilitado',),
+    )
+    status = models.CharField(choices=status_options, max_length=20,default=status_options[0][0])
+    
     def __unicode__(self):
         return str(self.description)
 
