@@ -98,7 +98,7 @@
       var susccess_response = function(data){
         console.log(data);
         $('.api-response').html(data);
-        $('.api-response').html(response_json["success"]);
+        $('.api-response').html(data["success"]);
       }
       $().ready(function(){
         $('form.ajax-post button[type=submit]').click(function(){
