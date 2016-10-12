@@ -1,4 +1,4 @@
-
+{% load static from staticfiles %}
 <form class="form-horizontal ajax-post col-sm-6 col-sm-offset-3" role="form" action="{% url 'rest_verify_email' %}">{% csrf_token %}
       <img class="logo" src="{% static 'authentication/image/logo-mexico-gp.png' %}" class="img-responsive">
       <h3>Confirmar cuenta.</h3>
