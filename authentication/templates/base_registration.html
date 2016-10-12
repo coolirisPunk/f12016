@@ -28,6 +28,39 @@
       background-image: url("{% static 'authentication/image/landing-bg.jpg' %}");
       background-size: 100%;
     }
+  h3{
+    color: white;
+
+    font-size: 18px;
+    margin: 30px 0;
+  }  
+  h3, input,button,span,.api-response{
+    font-family: 'Roboto Condensed', sans-serif;    
+  }
+  .ajax-post{
+    padding-top:100px;
+    text-align: center;
+  }
+  .logo{
+    max-width: 200px;
+  }
+  input{
+    color:#929292!important;
+  }
+  button{
+    font-size: 18px!important;
+    color: white!important;
+    border: none!important;
+    background: #e41b13!important;
+  }
+  span.error{
+    color:#e41b13!important;
+    font-size: 12px;
+  }
+.api-response{
+  color:white;
+}
+    
     </style>
     {% block css %}
     {% endblock %}
