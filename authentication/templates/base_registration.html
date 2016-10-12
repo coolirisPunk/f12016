@@ -75,7 +75,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript">
       var error_response = function(data){
-        //console.log(data);
+        console.log(data);
         if(data.status == 400){
           var json_errors = JSON.parse(data.responseText);
           var errors = [];
@@ -96,7 +96,7 @@
 
       }
       var susccess_response = function(data){
-        //console.log(data);
+        console.log(data);
         if (typeof data["success"] != "undefined") {
           $('.api-response').html("La contraseña ha sido restablecida.");
         }
