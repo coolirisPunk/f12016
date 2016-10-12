@@ -10,6 +10,7 @@ from django.contrib.sites.models import Site
 domain_url = Site.objects.get_current().domain
 
 class EventSerializer(DynamicFieldsModelSerializer):
+    
     class Meta:
         model = Event
         fields = [
