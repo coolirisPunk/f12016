@@ -100,6 +100,9 @@
         if (typeof data["success"] != "undefined") {
           $('.api-response').html("La contraseña ha sido restablecida.");
         }
+        if (typeof data["message"] != "undefined") {
+          $('.api-response').html("La cuenta ha sido confirmada.");
+        }        
 
       }
       $().ready(function(){
