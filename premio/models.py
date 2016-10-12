@@ -45,24 +45,6 @@ def get_slug_notification(self):
     return smart_text(self.description + "-" + self.event_type.event_day.description + "-" + self.start_time)
 
 
-class Event(TimeStampModel):
-    description = models.CharField(max_length=100)
-    start_time = models.CharField(max_length=100)
-    #hora_fin = models.CharField(max_length=100)
-    #descripcion = models.CharField(max_length=100)
-    #zona = models.CharField(max_length=100)
-    #event_day = models.ForeignKey(EventDay)
-    event_type = models.ForeignKey(EventType, related_name='events')
-    ordering = models.IntegerField(default=0)
-    slug = AutoSlugField(populate_from=get_slug_notification, unique_with=('description', 'event_type__event_day__description','start_time'), null=True, max_length=160)
-    date = models.DateTimeField(null=True, blank=True)
-    end_date = models.DateTimeField(null=True, blank=True)
-    highlight = models.BooleanField(default=False)
-    class Meta:
-        ordering = ['ordering']
-
-    def __unicode__(self):
-        return str(self.description)
 
 
 
@@ -269,6 +251,7 @@ class Zone(models.Model):
     def __unicode__(self):
         return smart_text(self.title)
 
+
 class Grandstand(models.Model):    
     title = models.CharField(max_length=100)
     zone = models.ForeignKey(Zone, related_name='grandstands')
@@ -309,6 +292,28 @@ class Seat(models.Model):
 
     def __unicode__(self):
         return smart_text(self.title)
+
+
+class Event(TimeStampModel):
+    description = models.CharField(max_length=100)
+    start_time = models.CharField(max_length=100)
+    #hora_fin = models.CharField(max_length=100)
+    #descripcion = models.CharField(max_length=100)
+    #zona = models.CharField(max_length=100)
+    #event_day = models.ForeignKey(EventDay)
+    event_type = models.ForeignKey(EventType, related_name='events')
+    ordering = models.IntegerField(default=0)
+    slug = AutoSlugField(populate_from=get_slug_notification, unique_with=('description', 'event_type__event_day__description','start_time'), null=True, max_length=160)
+    date = models.DateTimeField(null=True, blank=True)
+    end_date = models.DateTimeField(null=True, blank=True)
+    highlight = models.BooleanField(default=False)
+    zone = models.ForeignKey(Zone, null=True, blank=True)
+    class Meta:
+        ordering = ['ordering']
+
+    def __unicode__(self):
+        return str(self.description)
+
 
 
 class Benefit(models.Model):
