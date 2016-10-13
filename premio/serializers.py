@@ -142,7 +142,7 @@ class PilotoListSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Driver
         fields = [
-            'id','name','picture'
+            'id','name','picture','short_name'
         ]
 
     def get_picture_url(self, obj):
