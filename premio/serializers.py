@@ -185,7 +185,7 @@ class Formula1TasteSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Formula1Taste
         fields = [
-            'id', 'name', 'chef', 'website', 'picture','location','latitude','longitude', 'ordering'
+            'id', 'name', 'type', 'chef', 'website', 'picture','location','latitude','longitude', 'ordering'
         ]
 
 class ZoneSerializer(DynamicFieldsModelSerializer):

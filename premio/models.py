@@ -232,6 +232,7 @@ class Place(TimeStampModel):
 
 class Formula1Taste(TimeStampModel):
     name = models.CharField(max_length=100)
+    type = models.CharField(max_length=100, null=True, blank=True)
     chef = models.CharField(max_length=100, null=True, blank=True)
     location = models.CharField(max_length=100, null=True, blank=True)
     website = models.CharField(max_length=100, null=True, blank=True)
