@@ -253,7 +253,7 @@ class CiudadHotelesViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewsets.Mod
     Event Day endpoints
     """
     serializer_class = HotelSerializer
-    queryset = Hotel.objects.order_by("ordering")
+    queryset = Hotel.objects.order_by("ordering",'name')
     permission_classes = []
     model = Hotel
     default_fields = ['id', 'name', 'location', 'phone','picture','latitude','longitude','ordering']
@@ -268,7 +268,7 @@ class CiudadRestaurantesViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewset
     Event Day endpoints
     """
     serializer_class = RestauranteSerializer
-    queryset = Restaurant.objects.order_by("ordering")
+    queryset = Restaurant.objects.order_by("ordering",'name')
     permission_classes = []
     model = Restaurant
     default_fields = ['id', 'name', 'location', 'phone','picture','latitude','longitude','ordering']
@@ -282,7 +282,7 @@ class CiudadLugaresVisitarViewSet(CustomFieldsMixin, ActiveDesactiveMixin, views
     Event Day endpoints
     """
     serializer_class = LugarVisitarSerializer
-    queryset = Place.objects.order_by("ordering")
+    queryset = Place.objects.order_by("ordering",'name')
     permission_classes = []
     model = Place
     default_fields = ['id', 'name', 'location', 'phone','picture','latitude','longitude','ordering']
@@ -296,7 +296,7 @@ class SaborDelChefViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewsets.Mode
     Event Day endpoints
     """
     serializer_class = Formula1TasteSerializer
-    queryset = Formula1Taste.objects.order_by("ordering")
+    queryset = Formula1Taste.objects.order_by("ordering",'name')
     permission_classes = []
     model = Formula1Taste
     default_fields = ['id', 'name', 'chef', 'website', 'picture','location','ordering']

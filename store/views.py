@@ -31,7 +31,7 @@ class SellerViewSet(viewsets.ViewSet):
     serializer_class = SellerSerializer
 
     def list(self, request, category_product_pk=None):
-        queryset = Seller.objects.filter(category_product=category_product_pk).order_by('ordering')
+        queryset = Seller.objects.filter(category_product=category_product_pk).order_by('ordering','name')
         serializer = SellerSerializer(queryset, many=True)
         return Response(serializer.data)
 
@@ -45,7 +45,7 @@ class ProductViewSet(viewsets.ViewSet):
     serializer_class = ProductSerializer
 
     def list(self, request, category_product_pk=None, seller_pk=None):
-        queryset = Product.objects.filter(seller__category_product=category_product_pk, seller=seller_pk)
+        queryset = Product.objects.filter(seller__category_product=category_product_pk, seller=seller_pk).order_by('ordering','name')
         serializer = ProductSerializer(queryset, many=True)
         return Response(serializer.data)
 
