@@ -253,7 +253,7 @@ class CiudadHotelesViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewsets.Mod
     Event Day endpoints
     """
     serializer_class = HotelSerializer
-    queryset = Hotel.objects.all()
+    queryset = Hotel.objects.order_by("-ordering")
     permission_classes = []
     model = Hotel
     default_fields = ['id', 'name', 'location', 'phone','picture','latitude','longitude','ordering']
