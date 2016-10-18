@@ -230,7 +230,7 @@ REST_FRAMEWORK = {
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'app@mexicogp.mx'
-EMAIL_HOST_USER = "mail.smtp2go.com"
+EMAIL_HOST = 'mail.smtp2go.com'
+EMAIL_HOST_USER = "app@mexicogp.mx"
 EMAIL_HOST_PASSWORD = "c2g4ZTNwcGVtZTBt"
 EMAIL_PORT = 587
