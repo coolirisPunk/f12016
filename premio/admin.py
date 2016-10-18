@@ -59,7 +59,8 @@ admin.site.register(Benefit)
 
 
 class SectionAdmin(ImportExportModelAdmin):
-	pass
+    list_display = ['title', 'grandstand']
+    list_filter = ['grandstand']
 
 
 admin.site.register(Section, SectionAdmin)
