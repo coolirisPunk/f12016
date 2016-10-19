@@ -39,6 +39,9 @@ THUMBNAIL_DEBUG = DEBUG
 ALLOWED_HOSTS = []
 
 
+ADMINS = [('Jon', 'jon@punkmkt.com'), ('German', 'german@punkmkt.com')]
+
+
 
 # Application definition
 
