@@ -17,9 +17,6 @@ from operator import itemgetter
 from django.contrib.sites.models import Site
 
 
-def get_domain():
-    return "http://104.236.3.158"
-
 domain_url = Site.objects.get_current().domain
 
 class EventDayViewSet(CustomFieldsMixin, viewsets.ModelViewSet):
@@ -153,11 +150,11 @@ class PremioViewSet(CustomFieldsMixin, ActiveDesactiveMixin, viewsets.ModelViewS
     def retrieve(self, request, pk=None):
         queryset = Race.objects.filter(pk=pk)
         r = get_object_or_404(queryset, pk=pk)
-        race = {"id": r.pk,"name": r.name,"flag": domain_url + settings.MEDIA_URL + str(r.flag)}
+        race = {"id": r.pk,"name": r.name, "flag": domain_url + settings.MEDIA_URL + str(r.flag)}
         phase_set = Phase.objects.filter(race=r).order_by("name")
         phases = []
         for i, phase in enumerate(phase_set):
-            phase_aux = {"id": phase.pk,"name": phase.name,"phase_type": phase.phase_type.name}
+            phase_aux = {"id": phase.pk,"name": phase.name, "phase_type": phase.phase_type.name}
             phases.append(phase_aux)
             positions = Position.objects.filter(phase=phase).order_by("number")
             positions_set = []
