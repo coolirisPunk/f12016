@@ -7,7 +7,7 @@ from rest_framework import serializers
 from django.conf import settings
 from django.contrib.sites.models import Site
 
-domain_url = Site.objects.get_current().domain
+domain_url = "http://"+ Site.objects.get_current().domain
 
 class EventSerializer(DynamicFieldsModelSerializer):
     

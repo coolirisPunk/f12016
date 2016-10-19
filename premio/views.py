@@ -17,7 +17,7 @@ from operator import itemgetter
 from django.contrib.sites.models import Site
 
 
-domain_url = Site.objects.get_current().domain
+domain_url = "http://" + Site.objects.get_current().domain
 
 class EventDayViewSet(CustomFieldsMixin, viewsets.ModelViewSet):
     """
