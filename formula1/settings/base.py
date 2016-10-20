@@ -237,3 +237,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = "app@mexicogp.mx"
 EMAIL_HOST_PASSWORD = "J8QvHdjA"
 EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = 'app@mexicogp.mx'
