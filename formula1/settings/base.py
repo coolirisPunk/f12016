@@ -239,3 +239,4 @@ EMAIL_HOST_PASSWORD = "cooliris123123"
 EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = 'app@mexicogp.mx'
 FROM_EMAIL = 'app@mexicogp.mx'
+EMAIL_FROM= 'app@mexicogp.mx'
