@@ -18,7 +18,7 @@ class UserResource(resources.ModelResource):
 
     def before_save_instance(self, instance, using_transactions, dry_run):
     	print instance.password
-    	password = make_password(instance.password, None, 'pbkdf2_sha256')
+    	password = make_password(instance.password)
     	if is_password_usable(password):
     		print "usable"
     	else:
@@ -30,6 +30,7 @@ class UserResource(resources.ModelResource):
     		print "no coincide"
 
     	instance.set_password(password)
+        instance.password = password
     	print "Before"
     	pass
 
@@ -42,7 +43,7 @@ class UserAdmin(BaseUserAdmin, ImportExportModelAdmin):
 	inlines = [UserProfileInline]
 	list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'date_joined')
 	list_filter = ('is_staff', 'is_superuser')
-	#resource_class = UserResource
+	resource_class = UserResource
 
 
 
