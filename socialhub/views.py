@@ -47,10 +47,13 @@ def get_picture_facebook(request):
         r = requests.get(url)
         r_json = r.json()
         full_picture = ''
+        link = ''
         if 'full_picture' in r_json:
             full_picture = r_json["full_picture"]
+        if 'link' in r_json:
+            link  = urllib.quote_plus(str(r_json["link"]))
 
-        data = {"id":post_id,"picture":full_picture,"link":urllib.quote_plus(str(r_json["link"]))}
+        data = {"id":post_id,"picture":full_picture,"link":link}
         #except Exception, e:
             #data = 'fail'
     print "data"
