@@ -46,9 +46,11 @@ def get_picture_facebook(request):
         url = "https://graph.facebook.com/v2.6/" + post_id + "?fields=full_picture,link&access_token=" + EXTENDED_TOKEN_FACEBOOK
         r = requests.get(url)
         r_json = r.json()
-        print r_json
-        #im = get_thumbnail(r_json["full_picture"], '500x500', crop='center', quality=100,background=BACKGROUND_COLOR_POST_IMAGE)
-        data = {"id":post_id,"picture":r_json["full_picture"],"link":urllib.quote_plus(str(r_json["link"]))}
+        full_picture = ''
+        if 'full_picture' in r_json:
+            full_picture = r_json["full_picture"]
+
+        data = {"id":post_id,"picture":full_picture,"link":urllib.quote_plus(str(r_json["link"]))}
         #except Exception, e:
             #data = 'fail'
     print "data"
