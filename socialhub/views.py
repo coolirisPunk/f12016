@@ -126,8 +126,8 @@ def FeedInstragram():
 
 
 def getposts(request):
-    #lists = FeedFacebook(request) + FeedTwitter() + FeedInstragram()
-    lists = FeedFacebook(request) + FeedInstragram()
+    lists = FeedFacebook(request) + FeedTwitter() + FeedInstragram()
+    #lists = FeedFacebook(request) + FeedInstragram()
     feeds = sorted(lists, key=lambda k: k['created_time'], reverse=True)
 
     return render(request, 'socialhub.html', {"posts":feeds})
