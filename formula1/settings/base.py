@@ -46,6 +46,7 @@ ADMINS = [('Jon', 'jon@punkmkt.com'), ('German', 'german@punkmkt.com')]
 # Application definition
 
 INSTALLED_APPS = [
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
