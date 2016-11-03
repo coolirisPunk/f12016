@@ -241,3 +241,8 @@ EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = 'app@mexicogp.mx'
 FROM_EMAIL = 'app@mexicogp.mx'
 EMAIL_FROM = 'app@mexicogp.mx'
+
+
+JET_SIDE_MENU_COMPACT = True
+JET_CHANGE_FORM_SIBLING_LINKS = True
+
