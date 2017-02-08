@@ -15,6 +15,7 @@ api_patterns = [
 
 
 urlpatterns = [
+    url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(api_patterns)),
     url(r'^social-hub/', include('socialhub.urls')),

@@ -5,7 +5,8 @@ from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
 from common.serializers import DynamicFieldsModelSerializer
 from django.contrib.sites.models import Site
 from django.conf import settings
-domain_url = Site.objects.get_current().domain
+
+domain_url = "http://" + Site.objects.get_current().domain
 
 
 class CategoryProductSerializer(DynamicFieldsModelSerializer):
@@ -36,7 +37,7 @@ class ProductSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Product
         fields = [
-            'id', 'name' ,'description', 'price','review',
+            'id', 'name', 'description', 'price', 'review',
         ]
 
     def get_picture_url(self, obj):
