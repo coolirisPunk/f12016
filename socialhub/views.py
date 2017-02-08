@@ -26,8 +26,8 @@ CONSUMER_SECRET_TWITTER = "b9jhnaJuHdhoNBhEv8N7XHOWgiPvvpNDuBHlNjR7UEV4DFqxig"
 ACCESS_TOKEN_TWITTER = "2167556856-RmZHrI1veXxozyuG07vNgm5V0q3pJHslTu7dCnI"
 ACCESS_TOKEN_SECRET_TWITTER = "QhAkahpiUzNSB6A1rlPn2slqyjh9xkD11dinJoQXIqabg"
 
-ACCESS_TOKEN_INSTAGRAM = "175040200.6e121fc.c990dacd28a04bf393605433b5e2f0ed"
-CLIENT_SECRET_INSTAGRAM = "0730c7e244fb439aa8b94e81fef9ccb1"
+ACCESS_TOKEN_INSTAGRAM = "1296904443.e653774.41fb070a224e40fab914288678292b1d"
+CLIENT_SECRET_INSTAGRAM = "1580722098914ae19056e65ddb69d846"
 USER_ID_INSTAGRAM = '1681101575'
 CONST_USER__INSTAGRAM = 'mexicogp'
 
@@ -46,14 +46,9 @@ def get_picture_facebook(request):
         url = "https://graph.facebook.com/v2.6/" + post_id + "?fields=full_picture,link&access_token=" + EXTENDED_TOKEN_FACEBOOK
         r = requests.get(url)
         r_json = r.json()
-        full_picture = ''
-        link = ''
-        if 'full_picture' in r_json:
-            full_picture = r_json["full_picture"]
-        if 'link' in r_json:
-            link  = urllib.quote_plus(str(r_json["link"]))
-
-        data = {"id":post_id,"picture":full_picture,"link":link}
+        print r_json
+        #im = get_thumbnail(r_json["full_picture"], '500x500', crop='center', quality=100,background=BACKGROUND_COLOR_POST_IMAGE)
+        data = {"id":post_id,"picture":r_json["full_picture"],"link":urllib.quote_plus(str(r_json["link"]))}
         #except Exception, e:
             #data = 'fail'
     print "data"
@@ -127,7 +122,6 @@ def FeedInstragram():
 
 def getposts(request):
     lists = FeedFacebook(request) + FeedTwitter() + FeedInstragram()
-    #lists = FeedFacebook(request) + FeedInstragram()
     feeds = sorted(lists, key=lambda k: k['created_time'], reverse=True)
 
     return render(request, 'socialhub.html', {"posts":feeds})
