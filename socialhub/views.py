@@ -105,11 +105,12 @@ def FeedTwitter():
                 pass
     return tweets
 
+
 def FeedInstragram():
     api = InstagramAPI(access_token=ACCESS_TOKEN_INSTAGRAM, client_secret=CLIENT_SECRET_INSTAGRAM)
     posts = []
-    feed, next_ = api.user_recent_media(user_id=USER_ID_INSTAGRAM, count=COUNT_NUMBER_POST)
     try:
+        feed, next_ = api.user_recent_media(user_id=USER_ID_INSTAGRAM, count=COUNT_NUMBER_POST)
         [posts.append(
             {"created_time": p.created_time, "type": "instagram", "user": p.user,
              "text": str(p.caption).replace("Comment: "+ CONST_USER__INSTAGRAM +" said ", ""),
